@@ -10,6 +10,8 @@ CREATE TABLE specifics_of_animal (
 	color text
 );
 
+--2
+
 INSERT INTO type_of_animal (description_type) 
 Values
 ('cheetah'), 
