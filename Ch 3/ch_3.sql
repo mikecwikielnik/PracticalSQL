@@ -56,6 +56,163 @@ ORDER BY school, salary;
 
 -- DeBarros, Anthony. Practical SQL, 2nd Edition (p. 35). No Starch Press. Kindle Edition. 
 
+-- where follows from
+
+SELECT last_name, school, hire_date
+FROM teachers
+WHERE school = 'Myers Middle School';
+
+-- other examples of commonly used comparison operators
+
+-- teachers named janet
+
+SELECT first_name, last_name, school
+FROM teachers
+WHERE first_name = 'Janet';
+
+-- list all schools not named fd roosevelt
+
+SELECT school
+FROM teachers
+WHERE school <> 'F.D. Roosevelt HS';
+
+-- less operator to list teacheres hired BEFORE jan 1, 2000 (using yyyy-mm-dd)
+
+SELECT first_name, last_name, hire_date
+FROM teachers
+WHERE hire_date < '2000-01-01';
+
+-- Using LIKE and ILIKE with WHERE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
