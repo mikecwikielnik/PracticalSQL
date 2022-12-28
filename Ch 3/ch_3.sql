@@ -39,9 +39,22 @@ ORDER BY school ASC,hire_date DESC;
 
 -- DeBarros, Anthony. Practical SQL, 2nd Edition (p. 33). No Starch Press. Kindle Edition. 
 
+SELECT DISTINCT school
+FROM teachers
+ORDER BY school;
 
+-- distinct works on more than one column
 
+SELECT DISTINCT school, salary
+FROM teachers
+ORDER BY school, salary;
 
+-- "for each x in the table, what are all the y-values?"
+-- answers the "for each.." questions! 
+
+-- Filtering Rows with WHERE
+
+-- DeBarros, Anthony. Practical SQL, 2nd Edition (p. 35). No Starch Press. Kindle Edition. 
 
 
 
