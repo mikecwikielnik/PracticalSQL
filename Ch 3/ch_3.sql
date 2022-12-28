@@ -82,12 +82,14 @@ SELECT first_name, last_name, hire_date
 FROM teachers
 WHERE hire_date < '2000-01-01';
 
--- Using LIKE and ILIKE with WHERE
+--    Using LIKE and ILIKE with WHERE
 
+SELECT first_name
+FROM teachers WHERE first_name LIKE 'sam%'; 
+SELECT first_name
+FROM teachers WHERE first_name ILIKE 'sam%';
 
-
-
-
+-- Combining Operators with AND and OR
 
 
 
