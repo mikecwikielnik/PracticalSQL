@@ -102,7 +102,10 @@ FROM teachers WHERE school = 'F.D. Roosevelt HS' AND (salary < 38000 Or salary >
 
 -- DeBarros, Anthony. Practical SQL, 2nd Edition (p. 39). No Starch Press. Kindle Edition. 
 
-
+SELECT first_name, last_name, school, hire_date, salary
+FROM teachers
+WHERE school LIKE '%Roos%'
+ORDER by hire_date DESC;
 
 
 
