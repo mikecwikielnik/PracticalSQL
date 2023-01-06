@@ -60,10 +60,12 @@ SELECT * FROM date_time_types;
 
 -- DeBarros, Anthony. Practical SQL, 2nd Edition (p. 53). No Starch Press. Kindle Edition. 
 
+SELECT timestamp_column, interval_column, timestamp_column - interval_column AS new_date
+FROM date_time_types;
 
+-- Listing 4-6: Three CAST() examples
 
-
-
+-- DeBarros, Anthony. Practical SQL, 2nd Edition (p. 55). No Starch Press. Kindle Edition. 
 
 
 
