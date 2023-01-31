@@ -73,12 +73,25 @@ LIMIT 5;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Location 2850). Kindle Edition. 
 
+CREATE TABLE supervisor_salaries(
+	id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	town text,
+	county text,
+	supervisor text,
+	state_date date,
+	salary numeric(10,2),
+	benefits numeric(10,2)
+);
 
+COPY supervisor_salaries (town, supervisor, salary)
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\supervisor_salaries.csv'
+WITH (FORMAT CSV, HEADER);
 
+select * from supervisor_salaries LIMIT 2;
 
+-- Importing a Subset of Rows with COPY
 
-
-
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 2888-2889). Kindle Edition. 
 
 
 
