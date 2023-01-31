@@ -144,6 +144,30 @@ WITH (FORMAT CSV, HEADER, DELIMITER '|');
 
 -- Exporting Query Results
 
+COPY (
+	SELECT county_name, state_name
+	FROM us_counties_pop_est_2019
+	WHERE county_name ILIKE '%mill%'
+)
+TO 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\us_counties_mill_export.csv'
+WITH (FORMAT CSV, HEADER);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
