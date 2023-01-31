@@ -40,22 +40,38 @@ select * From us_counties_pop_est_2019;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 2798-2799). Kindle Edition. 
 
+COPY us_counties_pop_est_2019
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\us_counties_pop_est_2019.csv'
+;
+
+SELECT * FROM us_counties_pop_est_2019;
+
+-- Performing the Census Import with COPY
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 2798-2799). Kindle Edition. 
 
 
+COPY us_counties_pop_est_2019
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\us_counties_pop_est_2019.csv'
+WITH (FORMAT CSV, HEADER);
 
+-- Inspecting the import 
 
+SELECT * FROM us_counties_pop_est_2019;
 
+SELECT county_name, state_name, area_land
+FROM us_counties_pop_est_2019
+ORDER BY area_land ASC
+LIMIT 3;
 
+SELECT county_name, state_name, internal_point_lat, internal_point_lon
+FROM us_counties_pop_est_2019
+ORDER BY internal_point_lon DESC
+LIMIT 5;
 
+-- Importing a Subset of Columns with COPY
 
-
-
-
-
-
-
-
-
+-- Anthony DeBarros. 9781718501072 (Kindle Location 2850). Kindle Edition. 
 
 
 
