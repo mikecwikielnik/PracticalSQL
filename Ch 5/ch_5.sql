@@ -93,12 +93,18 @@ select * from supervisor_salaries LIMIT 2;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 2888-2889). Kindle Edition. 
 
+DELETE FROM supervisor_salaries;
 
+COPY supervisor_salaries (town, supervisor, salary)
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\supervisor_salaries.csv'
+WITH (FORMAT CSV, HEADER)
+WHERE town = 'New Brillig';
+  
+SELECT * FROM supervisor_salaries;
 
+-- Adding a Value to a Column During Import
 
-
-
-
+-- Anthony DeBarros. 9781718501072 (Kindle Location 2907). Kindle Edition. 
 
 
 
