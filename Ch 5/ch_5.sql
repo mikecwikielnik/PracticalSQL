@@ -106,6 +106,40 @@ SELECT * FROM supervisor_salaries;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Location 2907). Kindle Edition. 
 
+DELETE FROM supervisor_salaries;
+
+-- create a temp table and import your csv
+-- then, query the data from that table and include county name
+
+CREATE TEMPORARY TABLE supervisor_salaries_temp
+	(LIKE supervisor_Salaries INCLUDING ALL);
+	
+COPY supervisor_salaries_temp (town, supervisor, salary)
+	FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\supervisor_salaries.csv'
+	WITH (FORMAT CSV, HEADER);
+	
+INSERT INTO supervisor_salaries (town, county, supervisor, salary)
+	SELECT town, 'Mills', supervisor, salary
+	FROM supervisor_salaries_temp;
+	
+DROP TABLE supervisor_salaries_temp;
+
+select * from supervisor_salaries;
+
+-- Using COPY to Export Data
+-- Exporting All Data
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 2947). Kindle Edition. 
+
+
+
+
+
+
+
+
+
+
 
 
 
