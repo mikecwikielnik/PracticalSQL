@@ -137,10 +137,12 @@ WITH (FORMAT CSV, HEADER, DELIMITER '|');
 
 -- Exporting Particular Columns
 
+COPY us_counties_pop_est_2019
+	(county_name, internal_point_lat, internal_point_lon)
+TO 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\us_counties_latlon_export.txt'
+WITH (FORMAT CSV, HEADER, DELIMITER '|');
 
-
-
-
+-- Exporting Query Results
 
 
 
