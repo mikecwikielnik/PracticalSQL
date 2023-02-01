@@ -17,7 +17,13 @@ SELECT 5 * 5 AS result;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Location 3100). Kindle Edition. 
 
-
+SELECT 11 / 6;
+SELECT 11 % 6;
+SELECT 11.0 / 6;
+SELECT CAST(11 AS numeric(3,1)) / 6; --numeric(3,1) mean 3 significant digits, 1 digit after decimal point
+							 		 --above shows 11.0
+									 
+									 
 
 
 
