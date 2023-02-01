@@ -41,7 +41,7 @@ select * From us_counties_pop_est_2019;
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 2798-2799). Kindle Edition. 
 
 COPY us_counties_pop_est_2019
-FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\us_counties_pop_est_2019.csv'
+FROM 'C:\fakepath\us_counties_pop_est_2019.csv'
 ;
 
 SELECT * FROM us_counties_pop_est_2019;
@@ -52,7 +52,7 @@ SELECT * FROM us_counties_pop_est_2019;
 
 
 COPY us_counties_pop_est_2019
-FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\us_counties_pop_est_2019.csv'
+FROM 'C:\fakepath\us_counties_pop_est_2019.csv'
 WITH (FORMAT CSV, HEADER);
 
 -- Inspecting the import 
@@ -84,7 +84,7 @@ CREATE TABLE supervisor_salaries(
 );
 
 COPY supervisor_salaries (town, supervisor, salary)
-FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\supervisor_salaries.csv'
+FROM 'C:\fakepath\supervisor_salaries.csv'
 WITH (FORMAT CSV, HEADER);
 
 select * from supervisor_salaries LIMIT 2;
@@ -96,7 +96,7 @@ select * from supervisor_salaries LIMIT 2;
 DELETE FROM supervisor_salaries;
 
 COPY supervisor_salaries (town, supervisor, salary)
-FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\supervisor_salaries.csv'
+FROM 'C:\fakepath5\supervisor_salaries.csv'
 WITH (FORMAT CSV, HEADER)
 WHERE town = 'New Brillig';
   
@@ -115,7 +115,7 @@ CREATE TEMPORARY TABLE supervisor_salaries_temp
 	(LIKE supervisor_Salaries INCLUDING ALL);
 	
 COPY supervisor_salaries_temp (town, supervisor, salary)
-	FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\supervisor_salaries.csv'
+	FROM 'C:\fakepath\supervisor_salaries.csv'
 	WITH (FORMAT CSV, HEADER);
 	
 INSERT INTO supervisor_salaries (town, county, supervisor, salary)
@@ -132,14 +132,14 @@ select * from supervisor_salaries;
 -- Anthony DeBarros. 9781718501072 (Kindle Location 2947). Kindle Edition. 
 
 COPY us_counties_pop_est_2019
-TO 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\us_counties_export.txt'
+TO 'C:\fakepath\us_counties_export.txt'
 WITH (FORMAT CSV, HEADER, DELIMITER '|');
 
 -- Exporting Particular Columns
 
 COPY us_counties_pop_est_2019
 	(county_name, internal_point_lat, internal_point_lon)
-TO 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\us_counties_latlon_export.txt'
+TO 'C:\fakepath\us_counties_latlon_export.txt'
 WITH (FORMAT CSV, HEADER, DELIMITER '|');
 
 -- Exporting Query Results
@@ -149,7 +149,7 @@ COPY (
 	FROM us_counties_pop_est_2019
 	WHERE county_name ILIKE '%mill%'
 )
-TO 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_05\us_counties_mill_export.csv'
+TO 'C:\fakepath\us_counties_mill_export.csv'
 WITH (FORMAT CSV, HEADER);
 
 
