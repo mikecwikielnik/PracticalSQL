@@ -17,7 +17,7 @@ VALUES ('abc', 'abc', 'abc'), ('defghi', 'defghi', 'defghi');
 
 TABLE char_data_types
 
-COPY char_data_types TO 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_04/typetest.txt'
+COPY char_data_types TO 'C:\fakepath\Chapter_04/typetest.txt'
 WITH (FORMAT CSV, HEADER, DELIMITER '|');
 
 -- Listing 4-2: Number data types in action
