@@ -45,15 +45,40 @@ SELECT county_name AS county,
 	deaths_2019 AS deaths,
 	international_migr_2019 AS int_migr,
 	domestic_migr_2019 AS dom_migr,
-	residula_2019 AS residual
+	residual_2019 AS residual
 FROM us_counties_pop_est_2019;
 	
 -- Listing 6-5: Subtracting two columns in us_counties_pop_est_2019
 
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 3177-3178). Kindle Edition. 
 
+SELECT county_name AS county,
+	state_name AS state,
+	births_2019 AS births,
+	deaths_2019 AS deaths,
+	births_2019 - deaths_2019 AS natural_increase
+FROM us_counties_pop_est_2019
+ORDER BY state_name, county_name;
 
+-- Listing 6-6: Checking census data totals
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3203). Kindle Edition. 
+
+SELECT county_name AS county,
+	state_name AS state,
+	pop_est_2019 AS pop,
+	pop_est_2018 + births_2019 - deaths_2019 +
+		international_migr_2019 + domestic_migr_2019 +
+		residual_2019 AS components_total,
+	pop_est_2019 - (pop_est_2018 + births_2019 - deaths_2019 +
+				   international_migr_2019 + domestic_migr_2019 + 
+				   residual_2019) AS difference
+FROM us_counties_pop_est_2019
+ORDER BY difference DESC;
+
+-- Listing 6-7: Calculating the percent of a county’s area that is water
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3230). Kindle Edition. 
 
 
 
