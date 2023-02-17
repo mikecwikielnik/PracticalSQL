@@ -115,7 +115,13 @@ FROM percent_change;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Location 3295). Kindle Edition. 
 
+SELECT sum(pop_est_2019) AS county_sum,
+	round(avg(pop_est_2019), 0) AS county_average
+FROM us_counties_pop_est_2019;
 
+-- Listing 6-10: Testing SQL percentile functions
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 3347-3348). Kindle Edition. 
 
 
 
