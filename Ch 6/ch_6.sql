@@ -80,12 +80,15 @@ ORDER BY difference DESC;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Location 3230). Kindle Edition. 
 
+SELECT county_name AS county,
+	state_name AS state,
+	area_water::numeric/(area_land + area_water)*100 AS pct_water
+FROM us_counties_pop_est_2019
+ORDER BY pct_water DESC;
 
+-- Listing 6-8: Calculating percent change
 
-
-
-
-
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3268). Kindle Edition. 
 
 
 
