@@ -149,11 +149,27 @@ SELECT sum(pop_est_2019) AS county_sum,
 	WITHIN GROUP (ORDER BY pop_est_2019) AS county_median
 FROM us_counties_pop_est_2019;
 
+-- Listing 6-12 shows how to calculate all four quartiles at once.
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 3379-3380). Kindle Edition. 
 	
+SELECT percentile_cont(ARRAY[.25, .5, .75])
+	WITHIN GROUP (ORDER BY pop_est_2019) AS quartiles
+FROM us_counties_pop_est_2019;
 
+-- Listing 6-13: Using unnest() to turn an array into rows (readability)
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 3406-3407). Kindle Edition. 
 
+SELECT unnest(
+	percentile_cont(ARRAY[.25, .5, .75])
+	WITHIN GROUP (ORDER BY pop_est_2019)
+	) AS quartiles
+FROM us_counties_pop_est_2019;
+
+-- Listing 6-14: Finding the most frequent value with mode()
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3417). Kindle Edition. 
 
 
 
