@@ -35,7 +35,9 @@ VALUES
 	(3, 'George', 'Pappas', 72500, 2),
 	(4, 'Michael', 'Arthur', 250000, 2);
 	
+-- Listing 7-2: Joining the employees and departments tables
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3554). Kindle Edition. 
 
 
 
