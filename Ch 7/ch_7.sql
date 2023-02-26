@@ -39,6 +39,10 @@ VALUES
 
 -- Anthony DeBarros. 9781718501072 (Kindle Location 3554). Kindle Edition. 
 
+SELECT *
+FROM employees JOIN departments
+ON employees.dept_id = departments.dept_id
+ORDER BY employees.dept_id;
 
 
 
