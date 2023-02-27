@@ -89,9 +89,14 @@ FROM district_2020 JOIN district_2035
 USING (id)
 ORDER BY district_2020.id;
 
+-- Listing 7-6: Using LEFT JOIN
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3654). Kindle Edition. 
 
-
+SELECT *
+FROM district_2020 LEFT JOIN district_2035
+ON district_2020.id = district_2035.id 	-- null values!
+ORDER BY district_2020.id;
 
 
 
