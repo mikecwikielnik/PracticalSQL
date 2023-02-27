@@ -84,7 +84,10 @@ ORDER BY district_2020.id
 
 -- Anthony DeBarros. 9781718501072 (Kindle Location 3638). Kindle Edition. 
 
-
+SELECT *
+FROM district_2020 JOIN district_2035
+USING (id)
+ORDER BY district_2020.id;
 
 
 
