@@ -124,6 +124,23 @@ SELECT *
 FROM district_2020 CROSS JOIN district_2035
 ORDER BY district_2020.id, district_2035.id;
 
+-- Listing 7-10: Filtering to show missing values with IS NULL
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3739). Kindle Edition. 
+
+SELECT *
+FROM district_2020 LEFT JOIN district_2035
+ON district_2020.id = district_2035.id
+WHERE district_2035.id IS NULL;
+
+
+
+
+
+
+
+
+
 
 
 
