@@ -98,11 +98,18 @@ FROM district_2020 LEFT JOIN district_2035
 ON district_2020.id = district_2035.id 	-- null values!
 ORDER BY district_2020.id;
 
+-- Listing 7-7: Using RIGHT JOIN
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3667). Kindle Edition. 
 
+SELECT *
+FROM district_2020 RIGHT JOIN district_2035
+ON district_2020.id = district_2035.id
+ORDER BY district_2035.id;
 
+-- Listing 7-8: Using FULL OUTER JOIN
 
-
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3686). Kindle Edition. 
 
 
 
