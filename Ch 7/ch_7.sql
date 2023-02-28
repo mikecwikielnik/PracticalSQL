@@ -155,6 +155,59 @@ FROM district_2020 as d20 LEFT JOIN district_2035 as d35
 ON d20.id = d35.id
 ORDER BY d20.id;
 
+-- Listing 7-13: Joining multiple tables
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3841). Kindle Edition. 
+
+CREATE TABLE district_2020_enrollment (
+	id integer, 
+	enrollment integer
+);
+
+CREATE TABLE district_2020_grades (
+	id integer,
+	grades varchar(10)
+);
+
+INSERT INTO district_2020_enrollment
+VALUES 
+	(1, 360),
+	(2, 10001),
+	(5, 450),
+	(6, 927);
+
+INSERT INTO district_2020_grades
+VALUES
+	(1, 'K-3'),
+	(2, '9-12'),
+	(5, '6-8'),
+	(6, '9-12');
+	
+SELECT d20.id,
+	d20.school_2020,
+	en.enrollment,
+	gr.grades
+FROM district_2020 as d20 JOIN district_2020_enrollment as en
+ON d20.id = en.id
+JOIN district_2020_grades as gr
+ON d20.id = gr.id
+ORDER BY d20.id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
