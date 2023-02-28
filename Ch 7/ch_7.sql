@@ -211,9 +211,20 @@ UNION ALL
 SELECT * FROM district_2035
 ORDER BY id;
 
+-- Listing 7-16: Customizing a UNION query
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3901). Kindle Edition. 
 
+SELECT '2020' as year,
+	school_2020 as school
+FROM district_2020
 
+UNION ALL 
+
+SELECT '2035' as year,
+	school_2035
+FROM district_2035
+ORDER BY school, year;
 
 
 
