@@ -193,9 +193,14 @@ JOIN district_2020_grades as gr
 ON d20.id = gr.id
 ORDER BY d20.id;
 
+-- Listing 7-14: Combining query results with UNION
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 3873-3874). Kindle Edition. 
 
-
+SELECT * FROM district_2020
+UNION
+SELECT * FROM district_2035
+ORDER BY id;
 
 
 
