@@ -240,9 +240,36 @@ EXCEPT
 SELECT * FROM district_2035
 ORDER BY id;
 
+-- Listing 7-18: Performing math on joined census tables
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3951). Kindle Edition. 
 
+CREATE TABLE us_counties_pop_est_2010 (
+	state_fips text,
+	county_fips text,
+	region smallint,
+	state_name text,
+	county_name text,
+	estimates_base_2010 integer,
+	CONSTRAINT counties_2010_key PRIMARY KEY (state_fips, county_fips)
+);
 
+COPY us_counties_pop_est_2010
+FROM 'C:/Users/mikec/OneDrive/Google One Drive/Google Drive/SQL/Practical SQL, 2nd Ed/practical-sql-2-main/Chapter_07/us_counties_pop_est_2010.csv'
+WITH (FORMAT CSV, HEADER);
+
+SELECT c2019.county_name,
+	c2019.state_name,
+	c2019.pop_est_2019 as pop_2019,
+	c2010.estimates_base_2010 as pop_2010,
+	c2019.pop_est_2019 - c2010.estimates_base_2010 as raw_change,
+	round((c2019.pop_est_2019::numeric - c2010.estimates_base_2010)
+		 / c2010.estimates_base_2010 * 100, 1) as pct_change
+FROM us_counties_pop_est_2019 as c2019
+JOIN us_counties_pop_est_2010 as c2010
+ON c2019.state_fips = c2010.state_fips
+AND c2019.county_fips = c2010.county_fips
+ORDER BY pct_change DESC;
 
 
 
