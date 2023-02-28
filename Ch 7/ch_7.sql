@@ -202,8 +202,14 @@ UNION
 SELECT * FROM district_2035
 ORDER BY id;
 
+-- Listing 7-15: Combining query results with UNION ALL
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 3889). Kindle Edition. 
 
+SELECT * FROM district_2020
+UNION ALL 
+SELECT * FROM district_2035
+ORDER BY id;
 
 
 
