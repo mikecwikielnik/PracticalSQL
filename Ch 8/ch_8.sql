@@ -32,6 +32,30 @@ VALUES ('T229901', 'Gem', 'Godfrey');
 INSERT INTO natural_key_example (license_id, first_name, last_name)
 VALUES ('T229901', 'John', 'Mitchell');
 
+-- Listing 8-3: Declaring a composite primary key as a natural key
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4196-4197). Kindle Edition. 
+
+CREATE TABLE natural_key_composite_example (
+	student_id text,
+	school_day date,
+	present boolean,
+	CONSTRAINT student_key PRIMARY KEY (student_id, school_day)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
