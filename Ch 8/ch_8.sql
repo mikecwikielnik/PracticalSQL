@@ -10,7 +10,7 @@
 CREATE TABLE natural_key_example (
 	license_id text CONSTRAINT license_key PRIMARY KEY,
 	first_name text,
-	last_name text,
+	last_name text
 );
 
 DROP TABLE natural_key_example;
@@ -21,4 +21,28 @@ CREATE TABLE natural_key_example (
 	last_name text,
 	CONSTRAINT license_key PRIMARY KEY (license_id)
 );
+
+-- Listing 8-2: An example of a primary key violation
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 4179). Kindle Edition. 
+
+INSERT INTO natural_key_example (license_id, first_name, last_name)
+VALUES ('T229901', 'Gem', 'Godfrey');
+
+INSERT INTO natural_key_example (license_id, first_name, last_name)
+VALUES ('T229901', 'John', 'Mitchell');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
