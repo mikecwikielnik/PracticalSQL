@@ -74,10 +74,20 @@ VALUES  ('Beachball Polish', '2020-03-15 09:21-07'),
 		
 SELECT * FROM surrogate_key_example;
 
+-- Listing 8-6: Restarting an IDENTITY sequence
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 4263). Kindle Edition. 
 
+INSERT INTO surrogate_key_example 
+OVERRIDING SYSTEM VALUE
+VALUES (4, 'Chicken Coop', '2021-09-03 10:33:-07');
 
+ALTER TABLE surrogate_key_example ALTER COLUMN order_number RESTART WITH 5;
 
+INSERT INTO surrogate_key_example (product_name, order_time)
+VALUES ('Aloe Plant', '2020-03-15 10:09-07');
+
+SELECT * FROM surrogate_key_example;
 
 
 
