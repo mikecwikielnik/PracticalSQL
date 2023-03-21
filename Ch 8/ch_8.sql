@@ -116,15 +116,22 @@ VALUES ('A2033391', '2022-03-17', 'T229901');
 INSERT INTO registrations (registration_id, registration_date, license_id)
 VALUES ('A75772', '2022-03-18', 'T000001');
 
+-- modify the Listing 8-7 CREATE TABLE statement for registrations, 
+-- adding the keywords at the end of the definition of the license_id column:
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4329-4330). Kindle Edition. 
 
 
+CREATE TABLE registrations (
+	registration_id text,
+	registration_date date,
+	license_id text REFERENCES licenses (license_id) ON DELETE CASCADE,
+	CONSTRAINT registration_key PRIMARY KEY (registration_id, license_id)
+);
 
+-- Listing 8-8: Examples of CHECK constraints
 
-
-
-
-
-
+-- Anthony DeBarros. 9781718501072 (Kindle Location 4354). Kindle Edition. 
 
 
 
