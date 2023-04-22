@@ -221,6 +221,10 @@ WHERE street = 'ZWICKY AVENUE';
 
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 4512-4513). Kindle Edition. 
 
+-- lets see how adding an index helps drive performance
+
+CREATE INDEX street_idx ON new_york_addresses (street); -- the execution time sped so fast, it was hard to believe
+
 
 
 
