@@ -204,6 +204,18 @@ WITH (FORMAT CSV, HEADER);
 
 -- select * from new_york_addresses;
 
+-- Listing 8-13: Benchmark queries for index performance
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4492-4493). Kindle Edition. 
+
+EXPLAIN ANALYZE SELECT * FROM new_york_addresses
+WHERE street = 'BROADWAY';
+
+EXPLAIN ANALYZE SELECT * FROM new_york_addresses
+WHERE street = '52 street';
+
+EXPLAIN ANALYZE SELECT * FROM new_york_addresses
+WHERE street = 'ZWICKY AVENUE';
 
 
 
