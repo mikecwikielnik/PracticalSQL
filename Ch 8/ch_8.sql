@@ -199,7 +199,7 @@ CREATE TABLE new_york_addresses (
 );
 
 COPY new_york_addresses
-FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_08\city_of_new_york.csv'
+FROM 'path'
 WITH (FORMAT CSV, HEADER);
 
 -- select * from new_york_addresses;
@@ -217,7 +217,9 @@ WHERE street = '52 street';
 EXPLAIN ANALYZE SELECT * FROM new_york_addresses
 WHERE street = 'ZWICKY AVENUE';
 
+-- Listing 8-14: Creating a B-tree index on the new_york_addresses table
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4512-4513). Kindle Edition. 
 
 
 
