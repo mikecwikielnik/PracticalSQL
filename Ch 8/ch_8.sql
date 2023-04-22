@@ -175,15 +175,34 @@ CREATE TABLE not_null_example (
 	CONSTRAINT student_id_key PRIMARY KEY (student_id)
 );
 
+-- Listing 8-11: Dropping and adding a primary key and a NOT NULL constraint
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4428-4429). Kindle Edition. 
 
+ALTER TABLE not_null_example DROP CONSTRAINT student_id_key;
+ALTER TABLE not_null_example ADD CONSTRAINT student_id_key PRIMARY KEY (student_id);
+ALTER TABLE not_null_example ALTER COLUMN first_name DROP NOT NULL;
+ALTER TABLE not_null_example ALTER COLUMN first_name SET NOT NULL;
 
+-- Listing 8-12: Importing New York City address data
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 4477). Kindle Edition. 
 
+CREATE TABLE new_york_addresses (
+	longitude numeric(9, 6),
+	latitude numeric(9, 6),
+	street_number text,
+	street text,
+	unit text,
+	postcode text,
+	id integer CONSTRAINT new_york_key PRIMARY KEY
+);
 
+COPY new_york_addresses
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_08\city_of_new_york.csv'
+WITH (FORMAT CSV, HEADER);
 
-
-
+-- select * from new_york_addresses;
 
 
 
