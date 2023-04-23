@@ -198,7 +198,15 @@ FROM pls_fy2016_libraries;
 SELECT count(phone)
 FROM pls_fy2018_libraries;
 
+-- Listing 9-5: Using count() for the number of distinct values in a column
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4723-4724). Kindle Edition. 
+
+SELECT count(libname)
+FROM pls_fy2018_libraries;
+
+SELECT count(DISTINCT libname)
+FROM pls_fy2018_libraries;
 
 
 
