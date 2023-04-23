@@ -224,8 +224,14 @@ FROM pls_fy2018_libraries
 GROUP BY stabr
 ORDER BY stabr;
 
+-- Listing 9-8: Using GROUP BY on the city and stabr columns
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4782-4783). Kindle Edition. 
 
+SELECT city, stabr
+FROM pls_fy2018_libraries
+GROUP BY city, stabr
+ORDER BY city, stabr;
 
 
 
