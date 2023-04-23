@@ -233,7 +233,22 @@ FROM pls_fy2018_libraries
 GROUP BY city, stabr
 ORDER BY city, stabr;
 
+-- Listing 9-9: Using GROUP BY with count() on the stabr column
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4797-4798). Kindle Edition. 
 
+SELECT stabr, COUNT(*)
+FROM pls_fy2018_libraries
+GROUP BY stabr
+ORDER BY count(*) DESC;
+
+-- Listing 9-10: Using GROUP BY with count() of the stabr and stataddr columns
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4828-4829). Kindle Edition. 
+
+SELECT stabr, stataddr, count(*)
+FROM pls_fy2018_libraries
+GROUP BY stabr, stataddr
+ORDER BY stabr, stataddr;
 
 
