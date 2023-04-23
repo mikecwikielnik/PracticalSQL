@@ -215,8 +215,14 @@ FROM pls_fy2018_libraries;
 SELECT max(visits), min(visits)
 FROM pls_fy2018_libraries;
 
+-- Listing 9-7: Using GROUP BY on the stabr column
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4769-4770). Kindle Edition. 
 
+SELECT stabr 
+FROM pls_fy2018_libraries
+GROUP BY stabr
+ORDER BY stabr;
 
 
 
