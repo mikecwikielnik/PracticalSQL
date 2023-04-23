@@ -191,7 +191,12 @@ FROM pls_fy2017_libraries;
 SELECT count(*)
 FROM pls_fy2016_libraries;
 
+-- Listing 9-4: Using count() for the number of values in a column
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 4706-4707). Kindle Edition. 
+
+SELECT count(phone)
+FROM pls_fy2018_libraries;
 
 
 
