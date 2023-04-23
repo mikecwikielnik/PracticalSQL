@@ -58,7 +58,7 @@ CREATE TABLE pls_fy2018_libraries (
 );
 
 COPY pls_fy2018_libraries
-FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_09\pls_fy2018_libraries.csv'
+FROM 'path\pls_fy2018_libraries.csv'
 WITH (FORMAT CSV, HEADER);
 
 CREATE INDEX libname_2018_idx ON pls_fy2018_libraries (libname);
@@ -168,11 +168,11 @@ CREATE TABLE pls_fy2016_libraries (
 );
 
 COPY pls_fy2017_libraries
-FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_09\pls_fy2017_libraries.csv'
+FROM 'path\pls_fy2017_libraries.csv'
 WITH (FORMAT CSV, HEADER);
 
 COPY pls_fy2016_libraries
-FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_09\pls_fy2016_libraries.csv'
+FROM 'path\pls_fy2016_libraries.csv'
 WITH (FORMAT CSV, HEADER);
 
 CREATE INDEX libname_2017_idx ON pls_fy2017_libraries (libname);
