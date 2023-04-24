@@ -49,9 +49,17 @@ FROM meat_poultry_egg_establishments
 GROUP BY st
 ORDER BY st;
 
+-- Listing 10-4: Using IS NULL to find missing values in the st column
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5131-5132). Kindle Edition. 
 
-
+SELECT establishment_number,
+	company,
+	city,
+	st,
+	zip
+FROM meat_poultry_egg_establishments
+WHERE st IS NULL;
 
 
 
