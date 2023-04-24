@@ -18,7 +18,7 @@ CREATE TABLE meat_poultry_egg_establishments (
 );
 
 COPY meat_poultry_egg_establishments
-FROM 'path\MPI_Directory_by_Establishment_Name.csv'
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_10\MPI_Directory_by_Establishment_Name.csv'
 WITH (FORMAT CSV, HEADER);
 
 CREATE INDEX company_idx ON meat_poultry_egg_establishments (company);
