@@ -61,5 +61,23 @@ SELECT establishment_number,
 FROM meat_poultry_egg_establishments
 WHERE st IS NULL;
 
+-- Listing 10-5: Using GROUP BY and count() to find inconsistent company
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5158-5159). Kindle Edition. 
+
+SELECT company,
+	count(*) AS company_count
+FROM meat_poultry_egg_establishments
+GROUP BY company
+ORDER BY company ASC;
+
+
+
+
+
+
+
+
+
 
 
