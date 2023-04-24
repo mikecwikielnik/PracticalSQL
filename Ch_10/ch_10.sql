@@ -71,8 +71,15 @@ FROM meat_poultry_egg_establishments
 GROUP BY company
 ORDER BY company ASC;
 
+-- Listing 10-6: Using length() and count() to test the zip column
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5184-5185). Kindle Edition. 
 
+SELECT length(zip),
+	count(*) AS length_count
+FROM meat_poultry_egg_establishments
+GROUP BY length(zip)
+ORDER BY length(zip) ASC;
 
 
 
