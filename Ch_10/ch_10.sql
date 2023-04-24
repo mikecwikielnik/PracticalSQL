@@ -81,9 +81,16 @@ FROM meat_poultry_egg_establishments
 GROUP BY length(zip)
 ORDER BY length(zip) ASC;
 
+-- Listing 10-7: Filtering with length() to find short zip values
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5195-5196). Kindle Edition. 
 
-
+SELECT st,
+	count(*) AS st_count
+FROM meat_poultry_egg_establishments
+WHERE length(zip) < 5
+GROUP BY st
+ORDER BY st ASC;
 
 
 
