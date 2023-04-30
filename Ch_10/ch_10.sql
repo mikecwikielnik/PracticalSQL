@@ -105,8 +105,12 @@ SELECT
 	(SELECT count(*) FROM meat_poultry_egg_establishments) AS original,
 	(SELECT count(*) FROM meat_poultry_egg_establishments_backup) AS backup;
 
+-- Listing 10-9: Creating and filling the st_copy column with ALTER TABLE and UPDATE
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5330-5331). Kindle Edition. 
 
-
+ALTER TABLE meat_poultry_egg_establishments ADD COLUMN st_copy text;
+UPDATE meat_poultry_egg_establishments
+SET st_copy = st;
 
 
