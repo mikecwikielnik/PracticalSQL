@@ -123,9 +123,22 @@ FROM meat_poultry_egg_establishments
 WHERE st IS DISTINCT FROM st_copy
 ORDER BY st;
 
+-- Listing 10-11: Updating the st column for three establishments
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5364-5365). Kindle Edition. 
 
+UPDATE meat_poultry_egg_establishments
+SET st = 'MN'
+WHERE establishment_number = 'V18677A';
 
+UPDATE meat_poultry_egg_establishments
+SET st = 'AL'
+WHERE establishment_number = 'M45319+P45319';
+
+UPDATE meat_poultry_egg_establishments
+SET st= 'WI'
+WHERE establishment_number = 'M263A+P263A+V263A'
+RETURNING establishment_number, company, city, st, zip;
 
 
 
