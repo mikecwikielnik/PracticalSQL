@@ -92,6 +92,21 @@ WHERE length(zip) < 5
 GROUP BY st
 ORDER BY st ASC;
 
+-- Listing 10-8: Backing up a table
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5299-5300). Kindle Edition. 
+
+CREATE TABLE meat_poultry_egg_establishments_backup AS
+SELECT * FROM meat_poultry_egg_establishments;
+
+-- check that the rows match up
+
+SELECT
+	(SELECT count(*) FROM meat_poultry_egg_establishments) AS original,
+	(SELECT count(*) FROM meat_poultry_egg_establishments_backup) AS backup;
+
+
+
 
 
 
