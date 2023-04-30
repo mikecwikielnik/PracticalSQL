@@ -113,4 +113,19 @@ ALTER TABLE meat_poultry_egg_establishments ADD COLUMN st_copy text;
 UPDATE meat_poultry_egg_establishments
 SET st_copy = st;
 
+-- Listing 10-10: Checking values in the st and st_copy columns
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5343). Kindle Edition. 
+
+SELECT st,
+	st_copy
+FROM meat_poultry_egg_establishments
+WHERE st IS DISTINCT FROM st_copy
+ORDER BY st;
+
+
+
+
+
+
 
