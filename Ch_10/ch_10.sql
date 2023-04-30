@@ -140,5 +140,28 @@ SET st= 'WI'
 WHERE establishment_number = 'M263A+P263A+V263A'
 RETURNING establishment_number, company, city, st, zip;
 
+-- Listing 10-12: Restoring original st column values
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5382). Kindle Edition. 
+
+-- restore from backup column
+UPDATE meat_poultry_egg_establishments
+SET st = st_copy;
+
+-- restore from backup table
+UPDATE meat_poultry_egg_establishments original
+SET st = backup.st
+FROM meat_poultry_egg_establishments_backup backup
+WHERE original.establishment_number = backup.establishment_number;
+
+
+
+
+
+
+
+
+
+
 
 
