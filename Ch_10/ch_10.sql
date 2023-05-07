@@ -167,5 +167,16 @@ ALTER TABLE meat_poultry_egg_establishments ADD COLUMN company_standard text;
 UPDATE meat_poultry_egg_establishments
 SET company_standard = company;
 
+-- Listing 10-14: Using an UPDATE statement to modify column
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5409). Kindle Edition. 
+
+UPDATE meat_poultry_egg_establishments 
+SET company_standard = 'Armour-Eckrich Meats'
+WHERE company LIKE 'Armour%'
+RETURNING company, company_standard;
+
+
+
 
 
