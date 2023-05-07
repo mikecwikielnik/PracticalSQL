@@ -154,14 +154,18 @@ SET st = backup.st
 FROM meat_poultry_egg_establishments_backup backup
 WHERE original.establishment_number = backup.establishment_number;
 
+-- Listing 10-13: Creating and filling the company_standard column
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5401-5402). Kindle Edition. 
 
+-- copy the names in company into the new column, and work in the new column.
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5397). Kindle Edition. 
 
+ALTER TABLE meat_poultry_egg_establishments ADD COLUMN company_standard text;
 
-
-
-
+UPDATE meat_poultry_egg_establishments
+SET company_standard = company;
 
 
 
