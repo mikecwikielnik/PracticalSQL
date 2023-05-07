@@ -226,11 +226,20 @@ WITH (FORMAT CSV, HEADER);
 ALTER TABLE meat_poultry_egg_establishments
 ADD COLUMN inspection_deadline timestamp with time zone;
 
-UPDATE meat_poultry_egg_establishments
-SET inspectioin_deadline = '2022-12-01 00:00 EST'
+UPDATE meat_poultry_egg_establishments establishments
+SET inspection_deadline = '2022-12-01 00:00 EST'
 WHERE EXISTS (SELECT state_regions.region
-			  FROM state regions
-			  WHERE establishments.st = state_regions.st
-			  AND state_regions = 'New England');
+		FROM state_regions
+		WHERE establishments.st = state_regions.st
+			  AND state_regions.region = 'New England');
 			  
-			  
+-- Listing 10-20: Viewing updated inspection_date values
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5504). Kindle Edition.  
+
+SELECT st, inspection_deadline
+FROM meat_poultry_egg_establishments
+GROUP BY st, inspection_deadline
+ORDER BY st;
+
+
