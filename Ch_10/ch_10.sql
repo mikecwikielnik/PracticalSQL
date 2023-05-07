@@ -259,4 +259,12 @@ ALTER TABLE meat_poultry_egg_establishments DROP COLUMN zip_copy;
 select * 
 from meat_poultry_egg_establishments;
 
+-- Listing 10-23: Removing a table from a database using DROP
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5574-5575). Kindle Edition. 
+
+DROP TABLE meat_poultry_egg_establishments_backup;
+
+
+
 
