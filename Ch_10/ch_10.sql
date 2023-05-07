@@ -191,7 +191,7 @@ SET zip_copy = zip;
 
 UPDATE meat_poultry_egg_establishments
 SET zip = '00' || zip
-WHERE st IN('PR', 'VT') AND length(zip) = 3; -- the best part is the length(zip) argument
+WHERE st IN('PR', 'VI') AND length(zip) = 3; -- the best part is the length(zip) argument
 
 -- Listing 10-17: Modifying codes in the zip column missing one leading zero
 
@@ -199,6 +199,25 @@ WHERE st IN('PR', 'VT') AND length(zip) = 3; -- the best part is the length(zip)
 
 UPDATE meat_poultry_egg_establishments
 SET zip = '0' || zip
-WHERE st IN ('CT', 'MA', 'ME', 'NH', 'NJ', 'RI', 'VT') AND length(4) = 4;
+WHERE st IN ('CT', 'MA', 'ME', 'NH', 'NJ', 'RI', 'VT') AND length(zip) = 4;
+
+-- VI looked like VT
+select *
+from meat_poultry_egg_establishments
+where length(zip) = 3;
+
+-- Listing 10-18: Creating and filling a state_regions table
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5474-5475). Kindle Edition. 
+
+CREATE TABLE state_regions (
+	st text CONSTRAINT st_key PRIMARY KEY,
+	region text NOT NULL
+);
+
+COPY state_regions
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_10\state_regions.csv'
+WITH (FORMAT CSV, HEADER);
+
 
 
