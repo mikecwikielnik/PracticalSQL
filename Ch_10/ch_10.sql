@@ -265,6 +265,22 @@ from meat_poultry_egg_establishments;
 
 DROP TABLE meat_poultry_egg_establishments_backup;
 
+-- Listing 10-24: Demonstrating a transaction block
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5606). Kindle Edition. 
+
+START TRANSACTION;
+
+UPDATE meat_poultry_egg_establishments
+SET company = 'AGRO Merchantss Oakland LLC'
+WHERE company = 'AGRO Merchants Oakland, LLC';
+
+SELECT company
+FROM meat_poultry_egg_establishments
+WHERE company LIKE 'AGRO%'
+ORDER BY company;
+
+ROLLBACK;
 
 
 
