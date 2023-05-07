@@ -193,8 +193,12 @@ UPDATE meat_poultry_egg_establishments
 SET zip = '00' || zip
 WHERE st IN('PR', 'VT') AND length(zip) = 3; -- the best part is the length(zip) argument
 
+-- Listing 10-17: Modifying codes in the zip column missing one leading zero
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5452-5453). Kindle Edition. 
 
-
+UPDATE meat_poultry_egg_establishments
+SET zip = '0' || zip
+WHERE st IN ('CT', 'MA', 'ME', 'NH', 'NJ', 'RI', 'VT') AND length(4) = 4;
 
 
