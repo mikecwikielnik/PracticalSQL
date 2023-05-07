@@ -246,10 +246,17 @@ ORDER BY st;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 5538-5539). Kindle Edition. 
 
+DELETE FROM meat_poultry_egg_establishments
+WHERE st IN ('AS', 'GU', 'MP', 'PR', 'VI');
 
+-- Listing 10-22: Removing a column from a table using DROP
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5560). Kindle Edition. 
 
+ALTER TABLE meat_poultry_egg_establishments DROP COLUMN zip_copy;
 
-
+--verify the column was dropped
+select * 
+from meat_poultry_egg_establishments;
 
 
