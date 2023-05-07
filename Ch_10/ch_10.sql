@@ -185,4 +185,16 @@ ALTER TABLE meat_poultry_egg_establishments ADD COLUMN zip_copy text;
 UPDATE meat_poultry_egg_establishments 
 SET zip_copy = zip;
 
+-- Listing 10-16: Modifying codes in the zip column missing two leading zeros
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5441-5442). Kindle Edition. 
+
+UPDATE meat_poultry_egg_establishments
+SET zip = '00' || zip
+WHERE st IN('PR', 'VT') AND length(zip) = 3; -- the best part is the length(zip) argument
+
+
+
+
+
 
