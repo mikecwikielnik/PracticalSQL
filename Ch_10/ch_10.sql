@@ -176,7 +176,13 @@ SET company_standard = 'Armour-Eckrich Meats'
 WHERE company LIKE 'Armour%'
 RETURNING company, company_standard;
 
+-- Listing 10-15: Creating and filling the zip_copy column
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5436). Kindle Edition. 
 
+ALTER TABLE meat_poultry_egg_establishments ADD COLUMN zip_copy text;
+
+UPDATE meat_poultry_egg_establishments 
+SET zip_copy = zip;
 
 
