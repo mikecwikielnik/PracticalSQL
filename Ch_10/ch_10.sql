@@ -242,4 +242,14 @@ FROM meat_poultry_egg_establishments
 GROUP BY st, inspection_deadline
 ORDER BY st;
 
+-- Listing 10-21: Deleting rows matching an expression
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5538-5539). Kindle Edition. 
+
+
+
+
+
+
+
 
