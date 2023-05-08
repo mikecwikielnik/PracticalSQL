@@ -282,5 +282,25 @@ ORDER BY company;
 
 ROLLBACK;
 
+-- Listing 10-25: Backing up a table while adding and filling a new column
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5644). Kindle Edition. 
+
+CREATE TABLE meat_poultry_egg_establishments_backup AS
+SELECT *,
+	'2023-02-14 00:00 EST'::timestamp with time zone AS reviewed_date
+FROM meat_poultry_egg_establishments;
+
+-- Listing 10-26: Swapping table names using ALTER TABLE
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5656). Kindle Edition. 
+
+ALTER TABLE meat_poultry_egg_establishments
+	RENAME TO meat_poultry_egg_establishments_temp;
+ALTER TABLE meat_poultry_egg_establishments_backup
+	RENAME TO meat_poultry_egg_establishments;
+ALTER TABLE meat_poultry_egg_establishments_temp
+	RENAME TO meat_poultry_egg_establishments_backup;
+
 
 
