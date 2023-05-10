@@ -56,11 +56,20 @@ FROM acs_2014_2018_stats;
 SELECT 
 	round(
 		regr_slope(median_hh_income, pct_bachelors_higher)::numeric, 2) as slope,
-	round(regr_intercept(median_hh_income, pct_bachelors_higher)::numeric, 2) as y_intercept
+	round(
+		regr_intercept(median_hh_income, pct_bachelors_higher)::numeric, 2) as y_intercept
 FROM acs_2014_2018_stats;
 
+-- Listing 11-5: Calculating the coefficient of determination, or r-squared
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 5899). Kindle Edition. 
 
+-- r-squared is the coefficient of determination! 
+
+SELECT 
+	round(
+		regr_r2(median_hh_income, pct_bachelors_higher)::numeric, 3) as r_squared
+FROM acs_2014_2018_stats;
 
 
 
