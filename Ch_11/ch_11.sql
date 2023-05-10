@@ -32,9 +32,18 @@ SELECT * FROM acs_2014_2018_stats;
 SELECT corr(median_hh_income, pct_bachelors_higher) as bachelors_income_r
 FROM acs_2014_2018_stats;
 
+-- Listing 11-3: Using corr( Y, X) on additional variables
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5812-5813). Kindle Edition. 
 
+-- lets calculate the remaining variable pairs 
 
-
-
+SELECT
+	round(
+		corr(median_hh_income, pct_bachelors_higher)::numeric, 2) as bachelors_income_r,
+	round(
+		corr(pct_travel_60_min, median_hh_income)::numeric, 2) as income_travel_r,
+	round(
+		corr(pct_travel_60_min, pct_bachelors_higher)::numeric, 2) as bachelors_travel_r
+FROM acs_2014_2018_stats;
 
