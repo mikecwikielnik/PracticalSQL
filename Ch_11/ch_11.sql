@@ -177,6 +177,53 @@ AND cbp.county_fips = pop.county_fips
 WHERE pop.pop_est_2018 >= 50000
 ORDER BY cbp.establishments::numeric / pop.pop_est_2018 DESC;
 
+-- Listing 11-10: Creating a rolling average for export data
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 6124). Kindle Edition. 
+
+CREATE TABLE us_exports(
+	year smallint, 
+	month smallint,
+	citrus_export_value bigint,
+	soybeans_export_value bigint
+);
+
+COPY us_exports
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_11\us_exports.csv'
+WITH (FORMAT CSV, HEADER);
+
+SELECT year, month, citrus_export_value
+FROM us_exports
+ORDER BY year, month;
+
+SELECT year, month, citrus_export_value, 
+	round(
+		avg(citrus_export_value)
+			OVER (ORDER BY year, month
+				 ROWS BETWEEN 11 PRECEDING AND CURRENT ROW),0)
+				 AS twelve_month_avg
+FROM us_exports
+ORDER BY year, month;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
