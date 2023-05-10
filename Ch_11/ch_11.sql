@@ -25,3 +25,16 @@ WITH (FORMAT CSV, HEADER);
 
 SELECT * FROM acs_2014_2018_stats;
 
+-- Listing 11-2: Using corr( Y, X) to measure the relationship between education and income
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5789-5790). Kindle Edition. 
+
+SELECT corr(median_hh_income, pct_bachelors_higher) as bachelors_income_r
+FROM acs_2014_2018_stats;
+
+
+
+
+
+
+
