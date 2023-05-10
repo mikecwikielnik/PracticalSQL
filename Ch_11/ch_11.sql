@@ -101,7 +101,50 @@ FROM widget_companies
 ORDER BY widget_output DESC;
 
 -- dense rank 123345
--- rank 	  123356
+-- rank 	  123356 (rank is used most often in business)
+
+-- Listing 11-7: Applying rank() within groups using PARTITION BY
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 6005-6006). Kindle Edition. 
+
+CREATE TABLE store_sales (
+	store text NOT NULL,
+	category text NOT NULL,
+	unit_sales bigint NOT NULL,
+	CONSTRAINT store_category_key PRIMARY KEY (store, category)
+);
+
+INSERT INTO store_sales (store, category, unit_sales)
+VALUES
+	('Broders', 'cereal', 1104),
+	('Wallace', 'ice cream', 1863),
+	('Broders', 'ice cream', 2517),
+	('Cramers', 'ice cream', 2112),
+	('Broders', 'beer', 641),
+	('Cramers', 'cereal', 1003),
+	('Cramers', 'beer', 640),
+	('Wallace', 'cereal', 980),
+	('Wallace', 'beer', 988);
+	
+SELECT 
+	category,
+	store,
+	unit_sales,
+	rank() OVER (PARTITION BY category ORDER BY unit_sales DESC)
+FROM store_sales
+ORDER BY category, rank() OVER (PARTITION BY category
+							   ORDER BY unit_sales DESC);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
