@@ -71,6 +71,37 @@ SELECT
 		regr_r2(median_hh_income, pct_bachelors_higher)::numeric, 3) as r_squared
 FROM acs_2014_2018_stats;
 
+-- Listing 11-6: Using the rank() and dense_rank() window functions
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5962-5963). Kindle Edition. 
+
+CREATE TABLE widget_companies (
+	id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	company text NOT NULL,
+	widget_output integer NOT NULL
+);
+
+INSERT INTO widget_companies (company, widget_output)
+VALUES
+	('Dom Widgets', 125000),
+	('Ariadne Widget Masters', 143000),
+	('Saito Widget Co.', 201000),
+	('Mal Inc.', 133000),
+	('Dream Widget Inc.', 196000),
+	('Miles Amalgamated', 620000),
+	('Arthur Industries', 244000),
+	('Fischer Worldwide', 201000);
+	
+SELECT 
+	company,
+	widget_output,
+	rank() OVER (ORDER BY widget_output DESC),
+	dense_rank() OVER (ORDER BY widget_output DESC)
+FROM widget_companies
+ORDER BY widget_output DESC;
+
+-- dense rank 123345
+-- rank 	  123356
 
 
 
