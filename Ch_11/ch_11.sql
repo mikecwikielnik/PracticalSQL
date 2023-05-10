@@ -47,3 +47,23 @@ SELECT
 		corr(pct_travel_60_min, pct_bachelors_higher)::numeric, 2) as bachelors_travel_r
 FROM acs_2014_2018_stats;
 
+-- Listing 11-4: Regression slope and intercept functions
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 5869-5870). Kindle Edition. 
+
+-- linear regression in sql!
+
+SELECT 
+	round(
+		regr_slope(median_hh_income, pct_bachelors_higher)::numeric, 2) as slope,
+	round(regr_intercept(median_hh_income, pct_bachelors_higher)::numeric, 2) as y_intercept
+FROM acs_2014_2018_stats;
+
+
+
+
+
+
+
+
+
