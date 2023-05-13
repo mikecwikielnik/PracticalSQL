@@ -56,6 +56,18 @@ SELECT * FROM current_time_example;
 SHOW timezone;
 SELECT current_setting('timezone');
 
+-- Listing 12-5: Showing time zone abbreviations and names
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 6388-6389). Kindle Edition. 
+
+SELECT * FROM pg_timezone_abbrevs ORDER BY abbrev; 
+SELECT * FROM pg_timezone_names ORDER BY name;
+
+
+
+
+
+
 
 
 
