@@ -49,9 +49,12 @@ INSERT INTO current_time_example
 
 SELECT * FROM current_time_example;
 
+-- Listing 12-4: Viewing your current time zone setting
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 6373). Kindle Edition. 
 
-
+SHOW timezone;
+SELECT current_setting('timezone');
 
 
 
