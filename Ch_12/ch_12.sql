@@ -142,9 +142,16 @@ ON nyc_yellow_taxi_trips (tpep_pickup_datetime);
 
 select * from nyc_yellow_taxi_trips;
 
+-- Listing 12-8: Counting taxi trips by hour
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 6519-6520). Kindle Edition. 
 
-
+SELECT 
+	date_part('hour', tpep_pickup_datetime) AS trip_hour, -- super interesting line of code
+	count(*)
+FROM nyc_yellow_taxi_trips
+GROUP BY trip_hour
+ORDER BY trip_hour;
 
 
 
