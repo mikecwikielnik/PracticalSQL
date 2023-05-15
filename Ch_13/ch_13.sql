@@ -90,10 +90,19 @@ SELECT county_name,
 	FROM us_counties_pop_est_2019) AS us_median
 FROM us_counties_pop_est_2019;
 
+-- Listing 13-6: Using a subquery in a calculation
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 6888-6889). Kindle Edition. 
 
-
-
+SELECT county_name,
+	state_name AS st,
+	pop_est_2019,
+	pop_est_2019 - (SELECT percentile_cont(.5) WITHIN GROUP (ORDER BY pop_est_2019)
+				   FROM us_counties_pop_est_2019) AS diff_from_median
+FROM us_counties_pop_est_2019
+WHERE (pop_est_2019 - (SELECT percentile_cont(.5) WITHIN GROUP (ORDER BY pop_est_2019)
+					   FROM us_counties_pop_est_2019))
+BETWEEN -1000 and 1000;
 
 
 
