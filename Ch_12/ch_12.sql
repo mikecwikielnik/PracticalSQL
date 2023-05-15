@@ -63,9 +63,28 @@ SELECT current_setting('timezone');
 SELECT * FROM pg_timezone_abbrevs ORDER BY abbrev; 
 SELECT * FROM pg_timezone_names ORDER BY name;
 
+-- Listing 12-6: Setting the time zone for a client session
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 6418). Kindle Edition. 
 
+SET TIME ZONE 'US/Pacific';
 
+CREATE TABLE time_zone_test (
+	test_date timestamptz
+);
+
+INSERT INTO time_zone_test VALUES ('2023-01-01 4:00');
+
+SELECT test_date
+FROM time_zone_test;
+
+SET TIME ZONE 'US/Eastern';
+
+SELECT test_date
+FROM time_Zone_test;
+
+SELECT test_date AT TIME ZONE 'Asia/Seoul'
+FROM time_zone_test;
 
 
 
