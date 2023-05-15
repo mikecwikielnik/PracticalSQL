@@ -153,9 +153,20 @@ FROM nyc_yellow_taxi_trips
 GROUP BY trip_hour
 ORDER BY trip_hour;
 
+-- Listing 12-9: Exporting taxi pickups per hour to a CSV file
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 6546). Kindle Edition. 
 
-
+COPY
+	(SELECT
+		date_part('hour', tpep_pickup_datetime) AS trip_hour,
+		count(*)
+	FROM nyc_yellow_taxi_trips
+	GROUP BY trip_hour
+	ORDER BY trip_hour
+	)
+TO 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_12\hourly_taxi_pickups.csv'
+WITH (FORMAT CSV, HEADER);
 
 
 
