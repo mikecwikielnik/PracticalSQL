@@ -218,11 +218,20 @@ FROM train_rides;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 6667-6668). Kindle Edition. 
 
+SELECT segment,
+	arrival - departure AS segment_duration,
+	sum(arrival - departure) OVER (ORDER BY trip_id) AS cume_duration
+FROM train_rides;
 
+-- Listing 12-14: Using justify_interval() to better format cumulative trip duration
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 6687). Kindle Edition. 
 
-
-
+SELECT segment,
+	arrival - departure AS segment_duration,
+	justify_interval(sum(arrival - departure)
+					OVER (ORDER BY trip_id)) AS cume_duration
+FROM train_rides;
 
 
 
