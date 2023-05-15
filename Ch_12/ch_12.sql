@@ -205,11 +205,18 @@ SET TIME ZONE 'US/Central';
 
 SELECT * FROM train_rides;
 
+-- Listing 12-12: Calculating the length of each trip segment
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 6631-6632). Kindle Edition. 
 
+SELECT segment,
+	to_char(departure, 'YYYY-MM-DD HH12:MI am TZ') AS departure,
+	arrival - departure as segment_duration
+FROM train_rides;
 
+-- Listing 12-13: Calculating cumulative intervals using OVER
 
-
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 6667-6668). Kindle Edition. 
 
 
 
