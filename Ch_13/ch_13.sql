@@ -104,13 +104,31 @@ WHERE (pop_est_2019 - (SELECT percentile_cont(.5) WITHIN GROUP (ORDER BY pop_est
 					   FROM us_counties_pop_est_2019))
 BETWEEN -1000 and 1000;
 
+-- Listing 13-7: Creating and filling a retirees table
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 6919). Kindle Edition. 
 
+CREATE TABLE retirees (
+	id int,
+	first_name text,
+	last_name text
+);
 
+INSERT INTO retirees
+VALUES 
+	(2, 'Janet', 'King'),
+	(4, 'Michael', 'Taylor');
+	
 
+-- Listing 13-8: Generating values for the IN operator
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 6929-6930). Kindle Edition. 
 
-
-
+SELECT first_name, last_name
+FROM employees
+WHERE emp_id IN (
+	SELECT id
+	FROM retirees)
+ORDER BY emp_id;
 
 
