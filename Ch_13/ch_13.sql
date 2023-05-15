@@ -33,5 +33,33 @@ WHERE pop_est_2019 < (
 
 select * from us_counties_2019_top10;
 
+-- Listing 13-3: Subquery as a derived table in a FROM clause
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 6801-6802). Kindle Edition. 
+
+-- calc avg, calc median, subtract the two
+
+SELECT round(calcs.average, 0) AS average,
+	calcs.median,
+	round(calcs.average - calcs.median, 0) AS median_average_diff
+FROM (
+	SELECT avg(pop_est_2019) AS average,
+		percentile_cont(.5)
+		WITHIN GROUP (ORDER BY pop_est_2019)::numeric AS median -- pop_est_2019 is an integer
+	FROM us_counties_pop_est_2019
+)
+
+AS calcs;
+
+
+select pop_est_2019
+from us_counties_pop_est_2019;
+
+
+
+
+
+
+
 
 
