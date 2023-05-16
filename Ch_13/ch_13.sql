@@ -216,9 +216,30 @@ FROM large_counties
 GROUP BY state_name
 ORDER BY count(*) DESC;
 
+-- Listing 13-14: Using CTEs in a table join
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7073). Kindle Edition. 
 
-
+WITH 
+	counties(st, pop_est_2018) AS
+	(SELECT state_name, sum(pop_est_2018)
+	FROM us_counties_pop_est_2019
+	GROUP BY state_name),
+	
+	establishments (st, establishment_count) AS
+	(SELECT st, sum(establishments) AS establishment_count
+	FROM cbp_naics_72_establishments
+	GROUP BY st) 
+	
+SELECT counties.st,
+	pop_est_2018,
+	establishment_count,
+	round((establishments.establishment_count / 
+		  counties.pop_est_2018::numeric(10, 1)) * 1000, 1)
+		  AS estabs_per_thousand
+FROM counties JOIN establishments
+ON counties.st = establishments.st
+ORDER BY estabs_per_thousand DESC;
 
 
 
