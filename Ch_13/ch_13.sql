@@ -312,13 +312,55 @@ COPY temperature_readings
 FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_13\temperature_readings.csv'
 WITH (FORMAT CSV, HEADER);
 
+-- Listing 13-19: Generating the temperature readings crosstab
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 7215-7216). Kindle Edition. 
 
+SELECT *
+FROM crosstab ('SELECT 
+			   		station_name,
+			   		date_part(''month'', observation_date),
+			   		percentile_cont(.5)
+			   			WITHIN GROUP (ORDER BY max_temp)
+			   	FROM temperature_readings
+			   	GROUP BY station_name,
+			   		date_part(''month'', observation_date)
+			   	ORDER BY station_name',
+			  
+			 'SELECT month
+			  FROM generate_series(1, 12) month')
+			  
+AS (
+	station text,
+	jan numeric(3,0),
+	feb numeric(3, 0),
+	mar numeric(3, 0),
+	apr numeric(3, 0),
+	may numeric(3, 0),
+	jun numeric(3, 0),
+	jul numeric(3, 0),
+	aug numeric(3, 0),
+	sep numeric(3, 0),
+	oct numeric(3, 0),
+	nov numeric(3, 0),
+	dec numeric(3, 0)
+);			  
 
+-- Listing 13-20: Reclassifying temperature data with CASE
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7268). Kindle Edition. 
 
-
-
+SELECT max_temp,
+	CASE WHEN max_temp >= 90 THEN 'Hot'
+		WHEN max_temp >= 70 AND max_temp < 90 THEN 'Warm'
+		WHEN max_temp >= 50 AND max_temp < 70 THEN 'Pleasant'
+		WHEN max_temp >= 33 AND max_temp < 50 THEN 'Cold'
+		WHEN max_temp >= 20 AND max_temp < 33 THEN 'Frigid'
+		WHEN max_temp < 20 THEN 'Inhumane'
+		ELSE 'no reading'
+	END AS temperature_group
+FROM temperature_readings
+ORDER BY station_name, observation_date;
 
 
 
