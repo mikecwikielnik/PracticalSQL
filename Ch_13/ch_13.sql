@@ -259,6 +259,30 @@ FROM us_counties_pop_est_2019 CROSS JOIN us_median
 WHERE (pop_est_2019 - us_median_pop)
 BETWEEN -1000 AND 1000;
 
+-- Listing 13-16: Creating and filling the ice_cream_survey table
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7142). Kindle Edition. 
+
+CREATE EXTENSION tablefunc;
+
+CREATE TABLE ice_cream_survey (
+	response_id integer PRIMARY KEY,
+	office text,
+	flavor text
+);
+
+COPY ice_cream_survey
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_13\ice_cream_survey.csv'
+WITH (FORMAT CSV, HEADER);
+
+
+
+
+
+
+
+
+
 
 
 
