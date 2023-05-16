@@ -165,7 +165,7 @@ SELECT county_name,
 	raw_chg,
 	round(pct_chg * 100, 2) AS pct_chg
 FROM us_counties_pop_est_2019,
-	LATERAL (SELECT pop_est_2019 - pop_est_2018 AS raw_chg) rc,
+	LATERAL (SELECT pop_est_2019 - pop_est_2018 AS raw_chg) rc, -- will be important
 	LATERAL (SELECT raw_chg/pop_est_2018::numeric AS pct_chg) pc
 ORDER BY pct_chg DESC;
 
