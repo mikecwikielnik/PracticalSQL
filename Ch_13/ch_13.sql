@@ -296,6 +296,21 @@ AS (office text,
    strawberry bigint,
    vanilla bigint);
 
+-- Listing 13-18: Creating and filling a temperature_readings table
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7199). Kindle Edition. 
+
+CREATE TABLE temperature_readings (
+	station_name text,
+	observation_date date,
+	max_temp integer,
+	min_temp integer,
+	CONSTRAINT temp_key PRIMARY KEY (station_name, observation_date)
+);
+
+COPY temperature_readings
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_13\temperature_readings.csv'
+WITH (FORMAT CSV, HEADER);
 
 
 
