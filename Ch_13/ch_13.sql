@@ -143,6 +143,23 @@ WHERE EXISTS (
 	WHERE id = employees.emp_id
 );
 
+-- Listing 13-10: Using a correlated subquery with WHERE NOT EXISTS
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 6957). Kindle Edition. 
+
+SELECT first_name, last_name
+FROM employees
+WHERE NOT EXISTS (
+	SELECT id
+	FROM retirees
+	WHERE id = employees.emp_id);
+
+
+
+
+
+
+
 
 
 
