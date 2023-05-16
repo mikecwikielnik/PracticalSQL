@@ -131,4 +131,21 @@ WHERE emp_id IN (
 	FROM retirees)
 ORDER BY emp_id;
 
+-- Listing 13-9: Using a correlated subquery with WHERE EXISTS
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 6949). Kindle Edition. 
+
+SELECT first_name, last_name
+FROM employees
+WHERE EXISTS (
+	SELECT id
+	FROM retirees
+	WHERE id = employees.emp_id
+);
+
+
+
+
+
+
 
