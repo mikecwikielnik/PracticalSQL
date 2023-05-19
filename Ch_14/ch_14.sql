@@ -31,6 +31,15 @@ SELECT regexp_split_to_array('Phil Mike Tony Steve', ''); -- again, notice the n
 -- regexp_split_to_table(string, pattern)
 -- regexp_split_to_array(string, pattern)
 
+-- Listing 14-3: Finding an array length
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7553). Kindle Edition. 
+
+SELECT array_length(regexp_split_to_array('Phil Mike Tony Steve', ''),1);
+
+
+
+
 
 
 
