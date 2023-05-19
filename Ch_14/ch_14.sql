@@ -37,14 +37,26 @@ SELECT regexp_split_to_array('Phil Mike Tony Steve', ''); -- again, notice the n
 
 SELECT array_length(regexp_split_to_array('Phil Mike Tony Steve', ''),1);
 
+-- Listing 14-5: Creating and loading the crime_reports table
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 7599-7600). Kindle Edition. 
 
+CREATE TABLE crime_reports (
+	crime_id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	case_number text,
+	date_1 timestamptz,
+	date_2 timestamptz,
+	street text,
+	city text,
+	crime_type text,
+	description text,
+	original_text text NOT NULL
+);
 
+COPY crime_reports(original_text)
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_14\crime_reports.csv'
+WITH (FORMAT CSV, HEADER OFF, QUOTE '''');
 
-
-
-
-
-
+SELECT original_text FROM crime_reports;
 
 
