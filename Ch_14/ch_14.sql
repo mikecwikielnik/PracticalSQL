@@ -77,9 +77,14 @@ SELECT crime_id,
 FROM crime_reports
 ORDER BY crime_id;
 
+-- Listing 14-8: Using regexp_match() to find the second date
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 7671-7672). Kindle Edition. 
 
-
+SELECT crime_id,
+	regexp_match(original_text, '-\d{1,2}\/\d{1,2}\/\d{2}')
+FROM crime_reports
+ORDER BY crime_id;
 
 
 
