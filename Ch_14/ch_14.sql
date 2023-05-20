@@ -86,7 +86,14 @@ SELECT crime_id,
 FROM crime_reports
 ORDER BY crime_id;
 
+-- Listing 14-9: Using a capture group to return only the date
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7685). Kindle Edition. 
+
+SELECT crime_id,
+	regexp_match(original_text, '-(\d{1,2}\/\d{1,2}\/\d{2})')
+FROM crime_reports
+ORDER BY crime_id;
 
 
 
