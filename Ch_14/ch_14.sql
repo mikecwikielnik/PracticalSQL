@@ -119,6 +119,35 @@ SELECT
 FROM crime_reports
 ORDER BY crime_id;
 
+-- Listing 14-12: Updating the crime_reports date_1 column
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 7794-7795). Kindle Edition. 
+
+UPDATE crime_reports
+SET date_1 = 
+	(
+	(regexp_match(original_text, '\d{1,2}\/\d{1,2}\/\d{2}'))[1]
+		||''||
+	(regexp_match(original_text, '\/\d{2}\n(\d{4})'))[1]
+		||'US/Eastern'
+	)::timestamptz
+RETURNING crime_id, date_1, original_text;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
