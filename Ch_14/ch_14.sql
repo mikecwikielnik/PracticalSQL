@@ -59,4 +59,29 @@ WITH (FORMAT CSV, HEADER OFF, QUOTE '''');
 
 SELECT original_text FROM crime_reports;
 
+-- Listing 14-6: Using regexp_match() to find the first date
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 7636-7637). Kindle Edition. 
+
+SELECT crime_id,
+	regexp_match(original_text, '\d{1,2}\/\d{1,2}\/\d{2}')
+FROM crime_reports
+ORDER BY crime_id;
+
+-- Listing 14-7: Using the regexp_matches() function with the g flag
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 7653-7654). Kindle Edition. 
+
+SELECT crime_id,
+	regexp_matches(original_text, '\d{1,2}\/\d{1,2}\/\d{2}', 'g')
+FROM crime_reports
+ORDER BY crime_id;
+
+
+
+
+
+
+
+
 
