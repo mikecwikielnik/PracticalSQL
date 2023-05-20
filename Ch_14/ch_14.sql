@@ -55,7 +55,9 @@ CREATE TABLE crime_reports (
 
 COPY crime_reports(original_text)
 FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_14\crime_reports.csv'
-WITH (FORMAT CSV, HEADER OFF, QUOTE '''');
+WITH (FORMAT CSV, HEADER OFF, QUOTE """");
+
+DELETE FROM crime_reports;
 
 SELECT original_text FROM crime_reports;
 
@@ -94,6 +96,23 @@ SELECT crime_id,
 	regexp_match(original_text, '-(\d{1,2}\/\d{1,2}\/\d{2})')
 FROM crime_reports
 ORDER BY crime_id;
+
+-- Listing 14-10: Matching case number, date, crime type, and city
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7749). Kindle Edition. 
+
+SELECT 
+	regexp_match(original_text, '(?:C0|SO)[0-9]+') AS case_number,
+	regexp_match(original_text, '\d{1,2}\/\d{1,2}\/\d{2}') AS date_1,
+	regexp_match(original_text, '\n(?:\w+\w+|\w+)\n(.*):') AS crime_type,
+	regexp_match(original_text, '(?:Sq.|Plz.|Dr.|Ter.|Rd.)\n(\w+\w+|\w+)\n') AS city
+FROM crime_reports
+ORDER BY crime_id;
+
+
+
+
+
 
 
 
