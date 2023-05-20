@@ -173,10 +173,16 @@ SET date_1 =
 	description = (regexp_match(original_text, ':\s(.+)(?:C0|SO)'))[1],
 	case_number = (regexp_match(original_text, '(?:C0|SO)[0-9]+'))[1];
 
+-- Listing 14-14: Viewing selected crime data
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7892). Kindle Edition. 
 
-
-
+SELECT date_1,
+	street,
+	city,
+	crime_type
+FROM crime_reports
+ORDER BY crime_id;
 
 
 
