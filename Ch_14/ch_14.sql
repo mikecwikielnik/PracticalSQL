@@ -109,8 +109,15 @@ SELECT
 FROM crime_reports
 ORDER BY crime_id;
 
+-- Listing 14-11: Retrieving a value from within an array
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 7776-7777). Kindle Edition. 
 
+SELECT
+	crime_id,
+	(regexp_match(original_text, '(?:C0|SO)[0-9]+'))[1] AS case_number
+FROM crime_reports
+ORDER BY crime_id;
 
 
 
