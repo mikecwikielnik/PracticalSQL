@@ -206,12 +206,25 @@ SELECT to_tsvector('english', 'I am walking acorss the sitting room') @@
 SELECT to_tsvector('english', 'I am walking across the sitting room') @@
 	to_tsquery('english', 'walking & running');
 
+-- Listing 14-18: Creating and filling the president_speeches table
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 7981-7982). Kindle Edition. 
+
+CREATE TABLE president_speeches (
+	president text NOT NULL,
+	title text NOT NULL,
+	speech_date date NOT NULL,
+	speech_text text NOT NULL,
+	search_speech_text tsvector,
+	CONSTRAINT speech_key PRIMARY KEY (president, speech_date)
+);
+
+COPY president_speeches (president, title, speech_date, speech_text)
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_14\president_speeches.csv'
+WITH (FORMAT CSV, DELIMITER '|', HEADER OFF, QUOTE '@');
 
 
-
-
-
-
+select * from president_speeches;
 
 
 
