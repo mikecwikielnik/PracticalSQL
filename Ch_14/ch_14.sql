@@ -184,8 +184,11 @@ SELECT date_1,
 FROM crime_reports
 ORDER BY crime_id;
 
+-- Listing 14-15: Converting text to tsvector data
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7934). Kindle Edition. 
 
+SELECT to_tsvector('english', 'I am walking across the sitting room to sit with you.');
 
 
 
