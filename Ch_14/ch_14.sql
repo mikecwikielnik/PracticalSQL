@@ -239,9 +239,14 @@ SET search_speech_text = to_tsvector('english', speech_text);
 
 CREATE INDEX search_idx ON president_speeches USING gin(search_speech_text);
 
+-- Listing 14-21: Finding speeches containing the word Vietnam
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 8017-8018). Kindle Edition. 
 
-
+SELECT president, speech_Date
+FROM president_speeches
+WHERE search_speech_text @@ to_tsquery('english', 'Vietnam')
+ORDER BY speech_date;
 
 
 
