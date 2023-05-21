@@ -233,9 +233,11 @@ select * from president_speeches;
 UPDATE president_speeches
 SET search_speech_text = to_tsvector('english', speech_text);
 
+-- Listing 14-20: Creating a GIN index for text search
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 8005). Kindle Edition. 
 
-
+CREATE INDEX search_idx ON president_speeches USING gin(search_speech_text);
 
 
 
