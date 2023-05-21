@@ -243,13 +243,26 @@ CREATE INDEX search_idx ON president_speeches USING gin(search_speech_text);
 
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 8017-8018). Kindle Edition. 
 
-SELECT president, speech_Date
+SELECT president, count(speech_date)
 FROM president_speeches
-WHERE search_speech_text @@ to_tsquery('english', 'Vietnam')
+WHERE search_speech_text @@ to_tsquery('english', 'Mexico')
+GROUP BY president
+ORDER BY count(speech_date) DESC;
+
+-- Listing 14-22: Displaying search results with ts_headline()
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 8040-8041). Kindle Edition. 
+
+SELECT president,
+	speech_date,
+	ts_headline(speech_text, to_tsquery('english', 'Mexico'),
+			   'StartSel = <,
+				StopSel = >,
+				MinWords = 5,
+				MaxWords = 7,
+				MaxFragments = 3')
+FROM president_speeches
+WHERE search_speech_text @@ to_tsquery('english', 'Mexico')
 ORDER BY speech_date;
-
-
-
-
 
 
