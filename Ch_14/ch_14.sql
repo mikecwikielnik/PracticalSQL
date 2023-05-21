@@ -196,4 +196,24 @@ SELECT to_tsvector('english', 'I am walking across the sitting room to sit with 
 
 SELECT to_tsquery('english', 'walking & sitting');
 
+-- Listing 14-17: Querying a tsvector type with a tsquery
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 7968-7969). Kindle Edition. 
+
+SELECT to_tsvector('english', 'I am walking acorss the sitting room') @@
+	to_tsquery('english', 'walking & sitting');
+	
+SELECT to_tsvector('english', 'I am walking across the sitting room') @@
+	to_tsquery('english', 'walking & running');
+
+
+
+
+
+
+
+
+
+
+
 
