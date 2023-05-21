@@ -265,4 +265,25 @@ FROM president_speeches
 WHERE search_speech_text @@ to_tsquery('english', 'Mexico')
 ORDER BY speech_date;
 
+-- Listing 14-23: Finding speeches with the word transportation but not roads
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 8075-8076). Kindle Edition. 
+
+SELECT president,
+	speech_date,
+	ts_headline(speech_text, to_tsquery('english', 'transportatioin & !roads'),
+			   'StartSel = <,
+			   StopSel = >,
+			   MinWords = 5,
+			   MaxWords = 7,
+			   MaxFragments = 1')
+FROM president_speeches
+WHERE search_speech_text @@ to_tsquery('english', 'transportation & !roads')
+ORDER BY speech_date;
+
+
+
+
+
+
 
