@@ -226,6 +226,22 @@ WITH (FORMAT CSV, DELIMITER '|', HEADER OFF, QUOTE '@');
 
 select * from president_speeches;
 
+-- Listing 14-19: Converting speeches to tsvector in the search_speech_text column
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7990). Kindle Edition. 
+
+UPDATE president_speeches
+SET search_speech_text = to_tsvector('english', speech_text);
+
+
+
+
+
+
+
+
+
+
 
 
 
