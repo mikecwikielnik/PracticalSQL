@@ -190,8 +190,10 @@ ORDER BY crime_id;
 
 SELECT to_tsvector('english', 'I am walking across the sitting room to sit with you.');
 
+-- Listing 14-16: Converting search terms to tsquery data
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 7954). Kindle Edition. 
 
-
+SELECT to_tsquery('english', 'walking & sitting');
 
 
