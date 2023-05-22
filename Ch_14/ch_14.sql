@@ -281,8 +281,23 @@ FROM president_speeches
 WHERE search_speech_text @@ to_tsquery('english', 'transportation & !roads')
 ORDER BY speech_date;
 
+-- Listing 14-24: Finding speeches where defense follows military
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 8101). Kindle Edition. 
 
+SELECT president,
+	speech_date,
+	ts_headline(speech_text,
+			   to_tsquery('english', 'military <-> deense'),
+			   'StartSel = <,
+				StopSel = >,
+				MinWords = 5,
+				MaxWords = 7,
+				MaxFragments = 1')
+FROM president_speeches
+WHERE search_speech_text @@
+	to_tsquery('english', 'military <-> defense')
+ORDER BY speech_date;
 
 
 
