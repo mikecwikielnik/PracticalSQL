@@ -299,6 +299,37 @@ WHERE search_speech_text @@
 	to_tsquery('english', 'military <-> defense')
 ORDER BY speech_date;
 
+-- Listing 14-25: Scoring relevance with ts_rank()
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 8129). Kindle Edition. 
+
+SELECT president,
+	speech_date,
+	ts_rank(search_speech_text,
+		   to_tsquery('english', 'war & security & threat & enemy')) AS score
+FROM president_speeches
+WHERE search_speech_text @@
+	to_tsquery('english', 'war & security & threat & enemy')
+ORDER BY score DESC
+LIMIT 5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
