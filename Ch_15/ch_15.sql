@@ -57,6 +57,13 @@ SELECT ST_PointFromText('POINT(-74.9233606 42.699992)', 4326);
 SELECT ST_MakePoint(-74.9233606, 42.699992);
 SELECT ST_SetSRID(ST_MakePoint(-74.9233606, 42.699992), 4326);
 
+-- Listing 15-6: Functions specific to making LineStrings
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 8415). Kindle Edition. 
+
+SELECT ST_LineFromText('LINESTRING(-105.90 35.67, -105.91 35.67)', 4326);
+
+SELECT ST_MakeLine(ST_MakePoint(-74.9, 42.7), ST_MakePoint(-74.1, 42.4));
 
 
 
