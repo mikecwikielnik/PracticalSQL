@@ -65,6 +65,30 @@ SELECT ST_LineFromText('LINESTRING(-105.90 35.67, -105.91 35.67)', 4326);
 
 SELECT ST_MakeLine(ST_MakePoint(-74.9, 42.7), ST_MakePoint(-74.1, 42.4));
 
+-- Listing 15-7: Functions specific to making Polygons
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 8440). Kindle Edition. 
+
+SELECT ST_PolygonFromText('POLYGON((-74.9 42.7, -75.1 42.7, -75.1 42.6, -74.9 42.7))', 4326);
+
+SELECT ST_MakePolygon(ST_GeomFromText('LINESTRING(-74.92 42.7, -75.06 42.71, -75.07 42.64, -74.92 42.7)', 4326));
+
+SELECT ST_MPolyFromText('MULTIPOLYGON((
+					   (-74.92 42.7, -75.06 42.71,
+					   -75.07 42.64, -74.92 42.7),
+					   (-75.0 42.66, -75.0 42.64,
+					   -74.98 42.64, -74.98 42.66,
+					   -75.0 42.66)
+					   ))', 4326);
+
+
+
+
+
+
+
+
+
 
 
 
