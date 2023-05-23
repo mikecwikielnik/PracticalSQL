@@ -123,6 +123,45 @@ FROM farmers_markets
 WHERE longitude IS NOT NULL
 LIMIT 5;
 
+-- Listing 15-10: Using ST_DWithin() to locate farmers’ markets within 10 km of a point
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 8534-8535). Kindle Edition. 
+
+SELECT market_name, 
+	city,
+	st,
+	geog_point
+FROM farmers_markets
+WHERE ST_DWithin(geog_point,
+				ST_GeogFromText('POINT(-93.6204386 41.5853202)'),
+				10000)
+ORDER BY market_name;				
+
+-- Listing 15-11: Using ST_Distance() to calculate the miles between Yankee Stadium and Citi Field
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 8573-8574). Kindle Edition. 
+
+SELECT ST_Distance(
+	ST_GeogFromText('POINT(-73.9283685 40.8296466)'),
+	ST_GeogFromText('POINT(-73.8480153 40.7570917)')
+	)/1609.344 AS mets_to_yanks;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
