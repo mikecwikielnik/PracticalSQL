@@ -81,9 +81,26 @@ SELECT ST_MPolyFromText('MULTIPOLYGON((
 					   -75.0 42.66)
 					   ))', 4326);
 
+-- Listing 15-8: Creating and loading the farmers_markets table
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 8465). Kindle Edition. 
 
+CREATE TABLE farmers_markets (
+	fmid bigint PRIMARY KEY,
+	market_name text NOT NULL,
+	street text,
+	city text,
+	county text,
+	st text NOT NULL,
+	zip text,
+	longitude numeric(10, 7),
+	latitude numeric(10, 7),
+	organic text NOT NULL
+);
 
+COPY farmers_markets
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_15\farmers_markets.csv'
+WITH (FORMAT CSV, HEADER);
 
 
 
