@@ -11,3 +11,34 @@ CREATE EXTENSION postgis;
 
 SELECT postgis_full_version();
 
+-- Listing 15-2: Retrieving the WKT for SRID 4326
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 8302-8303). Kindle Edition. 
+
+SELECT srtext
+FROM spatial_ref_sys
+WHERE srid = 4326;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
