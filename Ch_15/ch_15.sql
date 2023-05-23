@@ -46,15 +46,16 @@ SELECT ST_GeomFromText('MULTIPOLYGON((
 
 -- Anthony DeBarros. 9781718501072 (Kindle Location 8385). Kindle Edition. 
 
-SELECT
-ST_GeogFromText('SRID = 4326; MULTIPOINT(-74.9 42.7, -75.1 42.7, -74.924 42.6)')
+SELECT ST_GeogFromText('SRID = 4326; MULTIPOINT(-74.9 42.7, -75.1 42.7, -74.924 42.6)')
 
+-- Listing 15-5: Functions specific to making Points
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 8397-8398). Kindle Edition. 
 
+SELECT ST_PointFromText('POINT(-74.9233606 42.699992)', 4326);
 
-
-
-
+SELECT ST_MakePoint(-74.9233606, 42.699992);
+SELECT ST_SetSRID(ST_MakePoint(-74.9233606, 42.699992), 4326);
 
 
 
