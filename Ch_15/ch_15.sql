@@ -163,9 +163,21 @@ WHERE ST_DWithin(geog_point,
 				10000)
 ORDER BY miles_from_dt ASC;				
 
+-- Listing 15-13: Using the <-> distance operator for a nearest neighbors search
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 8628-8629). Kindle Edition. 
 
-
+SELECT market_name,
+	city,
+	st,
+	round(
+		(ST_Distance(geog_point,
+					ST_GeogFromText('POINT(-68.2041607 44.3876414)')
+					)/1609.344)::numeric, 2
+		) AS miles_from_bh
+FROM farmers_markets
+ORDER BY geog_point <-> ST_GeogFromText('POINT(-68.2041607 44.3876414)')
+LIMIT 3;	
 
 
 
