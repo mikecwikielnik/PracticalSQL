@@ -188,9 +188,18 @@ FROM us_counties_2019_shp
 ORDER BY gid
 LIMIT 1;
 
+-- Listing 15-15: Finding the largest counties by area using ST_Area()
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 8770-8771). Kindle Edition. 
 
-
+SELECT name,
+	statefp AS st,
+	round(
+		(ST_Area(geom::geography)/ 2589988.110336)::numeric, 2
+	) AS square_miles
+FROM us_counties_2019_shp
+ORDER BY square_miles DESC
+LIMIT 5;
 
 
 
