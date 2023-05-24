@@ -179,6 +179,28 @@ FROM farmers_markets
 ORDER BY geog_point <-> ST_GeogFromText('POINT(-68.2041607 44.3876414)')
 LIMIT 3;	
 
+-- Listing 15-14: Checking the geom column’s WKT representation
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 8751). Kindle Edition. 
+
+SELECT ST_AsText(geom)
+FROM us_counties_2019_shp
+ORDER BY gid
+LIMIT 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
