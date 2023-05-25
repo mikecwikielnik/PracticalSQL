@@ -35,6 +35,38 @@ SELECT id, film -> 'genre' AS genre
 FROM films
 ORDER BY id;
 
+-- Listing 16-4: Retrieving a JSON array value with element extraction operators
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9142). Kindle Edition. 
+
+SELECT id, film -> 'genre' -> 0 AS genres
+FROM films
+ORDER BY id;
+
+SELECT id, film -> 'genre' -> 1 AS genres
+FROM films
+ORDER BY id;
+
+SELECT id, film -> 'genre' -> 2 AS genres
+FROM films
+ORDER BY id;
+
+SELECT id, film -> 'genre' ->> 0 AS genres
+FROM films
+ORDER BY id;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
