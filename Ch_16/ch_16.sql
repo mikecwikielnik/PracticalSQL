@@ -17,12 +17,23 @@ FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2
 
 CREATE INDEX idx_film ON films USING GIN (film);
 
+SELECT * FROM films;
 
+-- Listing 16-3: Retrieving a JSON key value with field extraction operators
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9115). Kindle Edition. 
 
+SELECT id, film -> 'title' AS title
+FROM films
+ORDER BY id;
 
+SELECT id, film ->> 'title' AS title
+FROM films
+ORDER BY id;
 
-
+SELECT id, film -> 'genre' AS genre
+FROM films
+ORDER BY id;
 
 
 
