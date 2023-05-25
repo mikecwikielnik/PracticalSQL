@@ -238,11 +238,16 @@ WHERE ST_DWithin(geom::geography,
 				ST_GeogFromText('SRID=4269;POINT(-96.699656 40.811567)'),
 				80467);	
 
+-- Listing 15-19: Using ST_GeometryType() to determine geometry
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 8871). Kindle Edition. 
 
+SELECT ST_GeometryType(geom)
+FROM santafe_linearwater_2019
+LIMIT 1;
 
-
-
-
+SELECT ST_GeometryType(geom)
+FROM santafe_roads_2019
+LIMIT 1;
 
 
