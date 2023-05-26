@@ -89,8 +89,14 @@ SELECT film ->> 'title' AS title,
 FROM films
 WHERE film @> '{"title":"The Incredibles"}'::jsonb;
 
+-- Listing 16-8: Demonstrating the <@ containment operator
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9262). Kindle Edition. 
 
+SELECT film ->> 'title' AS title,
+	film ->> 'year' AS year
+FROM films
+WHERE '{"title":"The Incredibles"}'::jsonb <@ film;
 
 
 
