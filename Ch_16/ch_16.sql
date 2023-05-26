@@ -55,13 +55,21 @@ SELECT id, film -> 'genre' ->> 0 AS genres
 FROM films
 ORDER BY id;
 
+-- Listing 16-5: Retrieving a JSON key value with path extraction operators
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9190-9191). Kindle Edition. 
 
+SELECT id, film #> '{rating, MPAA}' AS mpaa_rating
+FROM films
+ORDER BY id;
 
+SELECT id, film #> '{characters, 0, name}' AS name
+FROM films
+ORDER BY id;
 
-
-
-
+SELECT id, film #>> '{characters, 0, name}' AS name
+FROM films
+ORDER BY id;
 
 
 
