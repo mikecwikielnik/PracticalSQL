@@ -98,6 +98,41 @@ SELECT film ->> 'title' AS title,
 FROM films
 WHERE '{"title":"The Incredibles"}'::jsonb <@ film;
 
+-- Listing 16-9: Demonstrating existence operators
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9274). Kindle Edition. 
+
+SELECT film ->> 'title' AS title
+FROM films
+WHERE film ? 'rating';
+
+SELECT film ->> 'title' AS title,
+	film ->> 'rating' AS rating,
+	film ->> 'genre' AS genre
+FROM films
+where film ?| '{rating, genre}';
+
+SELECT film ->> 'title' AS title,
+	film ->> 'rating' AS rating,
+	film ->> 'genre' AS genre
+FROM films 
+WHERE film ?& '{rating, genre}';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
