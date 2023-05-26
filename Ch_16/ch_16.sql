@@ -71,9 +71,14 @@ SELECT id, film #>> '{characters, 0, name}' AS name
 FROM films
 ORDER BY id;
 
+-- Listing 16-6: Demonstrating the @> containment operator
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9236-9237). Kindle Edition. 
 
-
+SELECT id, film ->> 'title' AS title,
+	film @> '{"title": "The Incredibles"}'::jsonb AS is_incredible
+FROM films
+ORDER by id;
 
 
 
