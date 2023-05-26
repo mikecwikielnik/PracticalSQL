@@ -80,9 +80,14 @@ SELECT id, film ->> 'title' AS title,
 FROM films
 ORDER by id;
 
+-- Listing 16-7: Using a containment operator in a WHERE clause
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9251-9252). Kindle Edition. 
 
-
+SELECT film ->> 'title' AS title,
+	film ->> 'year' AS year
+FROM films
+WHERE film @> '{"title":"The Incredibles"}'::jsonb;
 
 
 
