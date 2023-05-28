@@ -140,9 +140,16 @@ SELECT id, earthquake #>> '{properties, time}' AS time
 FROM earthquakes
 ORDER BY id LIMIT 5;
 
+-- Listing 16-13: Converting the time value to a timestamp
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9350). Kindle Edition. 
 
-
+SELECT id, earthquake #>> '{properties, time}' as time,
+	to_timestamp(
+		(earthquake #>> '{properties, time}')::bigint / 10002
+			) AS time_formatted
+FROM earthquakes
+ORDER BY id LIMIT 5;
 
 
 
