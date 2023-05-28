@@ -151,6 +151,33 @@ SELECT id, earthquake #>> '{properties, time}' as time,
 FROM earthquakes
 ORDER BY id LIMIT 5;
 
+-- Listing 16-14: Finding the minimum and maximum earthquake times
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9369-9370). Kindle Edition. 
+
+SELECT min (to_timestamp(
+	(earthquake #>> '{properties, time}')::bigint / 1000
+		)) AT TIME ZONE 'UTC' AS min_timestamp,
+	max(to_timestamp(
+		(earthquake #>> '{properties, time}')::bigint / 1000
+		)) AT TIME ZONE 'UTC' AS max_timestammp
+FROM earthquakes;			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
