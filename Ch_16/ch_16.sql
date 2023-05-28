@@ -132,9 +132,13 @@ FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2
 
 CREATE INDEX idx_earthquakes ON earthquakes USING GIN (earthquake);
 
+-- Listing 16-12: Retrieving the earthquake time
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9336). Kindle Edition. 
 
-
+SELECT id, earthquake #>> '{properties, time}' AS time
+FROM earthquakes
+ORDER BY id LIMIT 5;
 
 
 
