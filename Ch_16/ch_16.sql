@@ -163,9 +163,17 @@ SELECT min (to_timestamp(
 		)) AT TIME ZONE 'UTC' AS max_timestammp
 FROM earthquakes;			
 
+-- Listing 16-15: Finding the five earthquakes with the largest magnitude
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9390-9391). Kindle Edition. 
 
-
+SELECT earthquake #>> '{properties, place}' AS place,
+	to_timestamp((earthquake #>> '{properties, time}')::bigint / 1000)
+		AT TIME ZONE 'UTC' AS time,
+	(earthquake #>> '{properties, mag}')::numeric AS magnitude
+FROM earthquakes
+ORDER BY (earthquake #>> '{properties, mag}')::numeric DESC NULLS LAST
+LIMIT 5;
 
 
 
