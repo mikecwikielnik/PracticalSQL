@@ -118,9 +118,19 @@ SELECT film ->> 'title' AS title,
 FROM films 
 WHERE film ?& '{rating, genre}';
 
+-- Listing 16-11: Creating and loading an earthquakes table
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9326-9327). Kindle Edition. 
 
+CREATE TABLE earthquakes (
+	id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	earthquake jsonb NOT NULL
+);
 
+COPY earthquakes (earthquake)
+FROM 'C:\Users\mikec\OneDrive\Google One Drive\Google Drive\SQL\Practical SQL, 2nd Ed\practical-sql-2-main\Chapter_16\earthquakes.json';
+
+CREATE INDEX idx_earthquakes ON earthquakes USING GIN (earthquake);
 
 
 
