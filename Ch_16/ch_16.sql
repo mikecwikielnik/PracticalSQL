@@ -267,9 +267,14 @@ FROM (
 	SELECT emp_id, last_name AS ln FROM employees
 ) AS employees;
 
+-- Listing 16-24: Aggregating the rows and converting to JSON
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9580). Kindle Edition. 
 
-
+SELECT json_agg(to_json(employees)) AS json
+FROM (
+	SELECT emp_id, last_name AS ln FROM employees
+) AS employees;
 
 
 
