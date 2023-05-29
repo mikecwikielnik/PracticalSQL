@@ -311,9 +311,15 @@ UPDATE films
 SET film = film #- '{genre,2}'
 WHERE film @> '{"title": "Cinema Paradiso"}'::jsonb;
 
+-- Listing 16-28: Finding the length of an array
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9657-9658). Kindle Edition. 
 
-
+SELECT id,
+	film ->> 'title' AS title,
+	jsonb_array_length(film -> 'characters') AS num_characters
+FROM films
+ORDER BY id;
 
 
 
