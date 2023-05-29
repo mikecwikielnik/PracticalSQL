@@ -217,6 +217,29 @@ ORDER BY id;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Location 9498). Kindle Edition. 
 
+ALTER TABLE earthquakes ADD COLUMN earthquake_point geography(POINT, 4326);
+
+UPDATE earthquakes
+SET earthquake_point = 
+	ST_SetSRID(
+		ST_MakePoint(
+			(earthquake #>> '{geometry, coordinates, 0}')::numeric,
+			(earthquake #>> '{geometry, coordinates, 1}')::numeric
+		),
+			4326)::geography;
+			
+CREATE INDEX quake_pt_idx ON earthquakes USING GIST (earthquake_point);			
+
+
+
+
+
+
+
+
+
+
+
 -- Listing 16-20: Finding earthquakes within 50 miles of downtown Tulsa, Oklahoma
 
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 9511-9512). Kindle Edition. 
@@ -227,7 +250,7 @@ SELECT earthquake #>> '{properties, place}' AS place,
 	(earthquake #>> '{properties, mag}')::numeric AS magnitude, earthquake_point
 FROM earthquakes
 WHERE ST_DWithin(earthquake_point,
-				ST_GeogFromTex('POINT(-95.989505 36.155007)'),
+				ST_GeogFromText('POINT(-95.989505 36.155007)'),
 				80468)
 ORDER BY time;				
 	
