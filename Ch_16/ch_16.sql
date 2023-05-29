@@ -230,16 +230,6 @@ SET earthquake_point =
 			
 CREATE INDEX quake_pt_idx ON earthquakes USING GIST (earthquake_point);			
 
-
-
-
-
-
-
-
-
-
-
 -- Listing 16-20: Finding earthquakes within 50 miles of downtown Tulsa, Oklahoma
 
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 9511-9512). Kindle Edition. 
@@ -254,7 +244,9 @@ WHERE ST_DWithin(earthquake_point,
 				80468)
 ORDER BY time;				
 	
+-- Listing 16-21: Turning query results into JSON with to_json()
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9541-9542). Kindle Edition. 
 
 
 
