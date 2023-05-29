@@ -288,6 +288,36 @@ UPDATE films
 SET film = film || jsonb_build_object('studio', 'pixar')
 WHERE film @> '{"title": "the incredibles"}'::jsonb;
 
+-- Listing 16-26: Adding an array value at a path with jsonb_set()
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9621). Kindle Edition. 
+
+UPDATE films
+SET film = jsonb_set(film,
+					'{genre}',
+					film #> '{genre}' || '["World War II"]',
+					true)
+WHERE film @> '{"title": "Cinema Paradiso"}'::jsonb;					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
