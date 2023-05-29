@@ -321,9 +321,15 @@ SELECT id,
 FROM films
 ORDER BY id;
 
+-- Listing 16-29: Returning array elements as rows
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9676). Kindle Edition. 
 
-
+SELECT id,
+	jsonb_array_elements(film -> 'genre') AS genre_jsonb,
+	jsonb_array_elements_text(film -> 'genre') AS genre_text
+FROM films
+ORDER BY id;
 
 
 
