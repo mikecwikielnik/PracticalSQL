@@ -188,9 +188,17 @@ FROM earthquakes
 ORDER BY (earthquake #>> '{properties, felt}')::integer DESC NULLS LAST
 LIMIT 5;
 
+-- Listing 16-17: Extracting the earthquake’s location data
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9445). Kindle Edition. 
 
-
+SELECT id,
+	earthquake #>> '{geometry, coordinates}' AS coordinates,
+	earthquake #>> '{geometry, coordinates, 0}' AS longitude,
+	earthquake #>> '{geometry, coordinates, 1}' AS latitude
+FROM earthquakes
+ORDER BY id
+LIMIT 5;
 
 
 
