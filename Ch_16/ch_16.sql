@@ -299,11 +299,17 @@ SET film = jsonb_set(film,
 					true)
 WHERE film @> '{"title": "Cinema Paradiso"}'::jsonb;					
 
+-- Listing 16-27: Deleting values from JSON
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9637-9638). Kindle Edition. 
 
+UPDATE films
+SET film = film - 'studio'
+WHERE film @> '{"title": "the incredibles"}'::jsonb;
 
-
-
+UPDATE films
+SET film = film #- '{genre,2}'
+WHERE film @> '{"title": "Cinema Paradiso"}'::jsonb;
 
 
 
