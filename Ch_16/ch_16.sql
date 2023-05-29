@@ -213,6 +213,45 @@ SELECT ST_SetSRID(
 FROM earthquakes
 ORDER BY id;
 
+-- Listing 16-19: Converting JSON coordinates to a PostGIS geometry column
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9498). Kindle Edition. 
+
+-- Listing 16-20: Finding earthquakes within 50 miles of downtown Tulsa, Oklahoma
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9511-9512). Kindle Edition. 
+
+SELECT earthquake #>> '{properties, place}' AS place,
+	to_timestamp((earthquake -> 'properties' ->> 'time')::bigint / 1000)
+		AT TIME ZONE 'UTC' AS time,
+	(earthquake #>> '{properties, mag}')::numeric AS magnitude, earthquake_point
+FROM earthquakes
+WHERE ST_DWithin(earthquake_point,
+				ST_GeogFromTex('POINT(-95.989505 36.155007)'),
+				80468)
+ORDER BY time;				
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
