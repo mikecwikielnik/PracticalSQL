@@ -248,11 +248,15 @@ ORDER BY time;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 9541-9542). Kindle Edition. 
 
+SELECT to_json(employees) AS json_rows
+FROM employees;
 
+-- Listing 16-22: Specifying columns to convert to JSON
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9555-9556). Kindle Edition. 
 
-
-
+SELECT to_json(row(emp_id, last_name)) AS json_rows
+FROM employees;
 
 
 
