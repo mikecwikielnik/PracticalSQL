@@ -258,9 +258,14 @@ FROM employees;
 SELECT to_json(row(emp_id, last_name)) AS json_rows
 FROM employees;
 
+-- Listing 16-23: Generating key names with a subquery
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9568). Kindle Edition. 
 
-
+SELECT to_json(employees) AS json_rows
+FROM (
+	SELECT emp_id, last_name AS ln FROM employees
+) AS employees;
 
 
 
