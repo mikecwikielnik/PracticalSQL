@@ -276,11 +276,17 @@ FROM (
 	SELECT emp_id, last_name AS ln FROM employees
 ) AS employees;
 
+-- Listing 16-25: Adding a top-level key/ value pair via concatenation
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9597-9598). Kindle Edition. 
 
+UPDATE films
+SET film = film || '{"studio": "pixar"}'::jsonb
+WHERE film @> '{"title":"The Incredibles"}'::jsonb;
 
-
-
+UPDATE films
+SET film = film || jsonb_build_object('studio', 'pixar')
+WHERE film @> '{"title": "the incredibles"}'::jsonb;
 
 
 
