@@ -42,9 +42,18 @@ JOIN us_counties_pop_est_2010 AS c2010
 ON c2019.state_fips = c2010.state_fips
 AND c2019.county_fips = c2010.county_fips;
 
+-- Listing 17-4: Selecting columns from the county_pop_change_2019_2010 view
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9847-9848). Kindle Edition. 
 
-
+SELECT county_name,
+	state_name,
+	pop_2019,
+	pct_change_2019_2010
+FROM county_pop_change_2019_2010
+WHERE state_name = 'Nevada'
+ORDER BY county_fips
+LIMIT 5;
 
 
 
