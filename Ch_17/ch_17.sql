@@ -140,8 +140,23 @@ RETURNS NULL ON NULL INPUT;
 
 SELECT percent_change(110, 108, 2);
 
+-- Listing 17-13: Testing percent_change() on census data
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 10085-10086). Kindle Edition. 
 
+SELECT c2019.county_name,
+	c2019.state_name,
+	c2019.pop_est_2019 AS pop_2019,
+	percent_change(c2019.pop_est_2019,
+				   c2010.estimates_base_2010) AS pct_chg_func,
+	round((c2019.pop_est_2019::numeric - c2010.estimates_base_2010)
+		  / c2010.estimates_base_2010 * 100, 1) AS pct_change_formula
+FROM us_counties_pop_est_2019 AS c2019
+JOIN us_counties_pop_est_2010 As c2010
+ON c2019.state_fips = c2010.state_fips
+AND c2019.county_fips = c2010.county_fips
+ORDER BY pct_chg_func DESC
+LIMIT 5;
 
 
 
