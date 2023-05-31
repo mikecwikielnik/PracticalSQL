@@ -124,7 +124,7 @@ WHERE emp_id = 5;
 -- Anthony DeBarros. 9781718501072 (Kindle Locations 10042-10043). Kindle Edition. 
 
 CREATE OR REPLACE FUNCTION
-percent_chagne(new_value numeric,
+percent_change(new_value numeric,
 			   old_value numeric,
 			   decimal_places integer DEFAULT 1)
 RETURNS numeric AS
@@ -134,9 +134,11 @@ LANGUAGE SQL
 IMMUTABLE
 RETURNS NULL ON NULL INPUT;
 
+-- Listing 17-12: Testing the percent_change() function
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 10067). Kindle Edition. 
 
-
+SELECT percent_change(110, 108, 2);
 
 
 
