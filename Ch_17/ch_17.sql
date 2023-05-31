@@ -119,9 +119,20 @@ SELECT * FROM employees_tax_dept ORDER BY emp_id;
 DELETE FROM employees_tax_dept
 WHERE emp_id = 5;
 
+-- Listing 17-11: Creating a percent_change() function A lot is happening in this code, but it’s not as
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 10042-10043). Kindle Edition. 
 
-
+CREATE OR REPLACE FUNCTION
+percent_chagne(new_value numeric,
+			   old_value numeric,
+			   decimal_places integer DEFAULT 1)
+RETURNS numeric AS
+'SELECT round(
+	((new_value - old_value) / old_value) * 100, decimal_places);'
+LANGUAGE SQL
+IMMUTABLE
+RETURNS NULL ON NULL INPUT;
 
 
 
