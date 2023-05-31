@@ -112,9 +112,12 @@ WHERE emp_id = 5;
 
 SELECT * FROM employees_tax_dept ORDER BY emp_id;
 
+-- Listing 17-10: Deleting a row via the employees_tax_dept view
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 10009-10010). Kindle Edition. 
 
-
+DELETE FROM employees_tax_dept
+WHERE emp_id = 5;
 
 
 
