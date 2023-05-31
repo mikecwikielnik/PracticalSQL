@@ -75,9 +75,18 @@ WHERE state_name = 'Nevada';
 
 REFRESH MATERIALIZED VIEW nevada_counties_pop_2019;
 
+-- Listing 17-7: Creating a view on the employees table
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9928). Kindle Edition. 
 
-
+CREATE OR REPLACE VIEW employees_tax_dept WITH (security_barrier) AS
+SELECT emp_id,
+	first_name,
+	last_name,
+	dept_id
+FROM employees
+WHERE dept_id = 1
+WITH LOCAL CHECK OPTION;
 
 
 
