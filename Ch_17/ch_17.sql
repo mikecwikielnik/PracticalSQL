@@ -69,9 +69,11 @@ SELECT county_name,
 FROM us_counties_pop_est_2019
 WHERE state_name = 'Nevada';
 
+-- Listing 17-6: Refreshing a materialized view
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 9889-9890). Kindle Edition. 
 
-
+REFRESH MATERIALIZED VIEW nevada_counties_pop_2019;
 
 
 
