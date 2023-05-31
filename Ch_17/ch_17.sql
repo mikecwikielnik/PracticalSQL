@@ -55,9 +55,19 @@ WHERE state_name = 'Nevada'
 ORDER BY county_fips
 LIMIT 5;
 
+-- Listing 17-5: Creating a materialized view
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9879). Kindle Edition. 
 
+DROP VIEW nevada_counties_pop_2019;
 
+CREATE MATERIALIZED VIEW nevada_counties_pop_2019 AS
+SELECT county_name,
+	state_fips,
+	county_fips,
+	pop_est_2019
+FROM us_counties_pop_est_2019
+WHERE state_name = 'Nevada';
 
 
 
