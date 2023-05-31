@@ -88,9 +88,19 @@ FROM employees
 WHERE dept_id = 1
 WITH LOCAL CHECK OPTION;
 
+-- Listing 17-8: Successful and rejected inserts via the employees_tax_dept view
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9958). Kindle Edition. 
 
+INSERT INTO employees_tax_dept (emp_id, first_name, last_name, dept_id)
+VALUES (5, 'Suzanne', 'Legere', 1);
 
+INSERT INTO employees_tax_dept (emp_id, first_name, last_name, dept_id)
+VALUES (6, 'Jamil', 'White', 2);
+
+SELECT * FROM employees_tax_dept ORDER BY emp_id;
+
+SELECT * FROM employees ORDER BY emp_id;
 
 
 
