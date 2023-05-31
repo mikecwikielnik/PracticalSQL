@@ -15,8 +15,14 @@ SELECT county_name,
 FROM us_counties_pop_est_2019
 WHERE state_name = 'Nevada';
 
+-- Listing 17-2: Querying the nevada_counties_pop_2010 view
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9811). Kindle Edition. 
 
+SELECT *
+FROM nevada_counties_pop_2019
+ORDER BY county_fips
+LIMIT 5;
 
 
 
