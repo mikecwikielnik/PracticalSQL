@@ -102,11 +102,15 @@ SELECT * FROM employees_tax_dept ORDER BY emp_id;
 
 SELECT * FROM employees ORDER BY emp_id;
 
+-- Listing 17-9: Updating a row via the employees_tax_dept view
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 9992). Kindle Edition. 
 
+UPDATE employees_tax_dept
+SET last_name = 'Le Gere'
+WHERE emp_id = 5;
 
-
-
+SELECT * FROM employees_tax_dept ORDER BY emp_id;
 
 
 
