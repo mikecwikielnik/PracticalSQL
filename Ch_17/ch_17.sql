@@ -158,9 +158,17 @@ AND c2019.county_fips = c2010.county_fips
 ORDER BY pct_chg_func DESC
 LIMIT 5;
 
+-- Listing 17-14: Adding a column to the teachers table and seeing the data
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 10119-10120). Kindle Edition. 
 
+ALTER TABLE teachers ADD COLUMN personal_days integer;
 
+SELECT first_name,
+	last_name,
+	hire_date,
+	personal_days
+FROM teachers;
 
 
 
