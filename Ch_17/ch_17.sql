@@ -170,12 +170,31 @@ SELECT first_name,
 	personal_days
 FROM teachers;
 
+-- Listing 17-15: Creating an update_personal_days() function
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 10148-10149). Kindle Edition. 
 
+CREATE OR REPLACE PROCEDURE update_personal_days()
+AS $$
+BEGIN
+	UPDATE teachers
+	SET personal_days = 
+		CASE 
+			WHEN (now() - hire_date) >= '10 years'::interval
+				AND (now() - hire_date) < '15 years'::interval THEN 4
+			WHEN (now() - hire_date) >= '15 years'::interval
+				AND (now() - hire_date) < '20 years'::interval THEN 5
+			WHEN (now() - hire_date) >= '20 years'::interval 
+				AND (now() - hire_date) < '25 years'::interval THEN 6
+			WHEN (now() - hire_date) >= '25 years'::interval THEN 7
+			ELSE 3
+		END;
+	RAISE NOTICE 'personal_days updated!';
+END;	
+$$
+LANGUAGE plpgsql;
 
-
-
-
+CALL update_personal_days();
 
 
 
