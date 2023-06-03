@@ -196,8 +196,11 @@ LANGUAGE plpgsql;
 
 CALL update_personal_days();
 
+-- Listing 17-16: Enabling the PL/ Python procedural language
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 10192). Kindle Edition. 
 
+CREATE EXTENSION plpython3u;
 
 
 
