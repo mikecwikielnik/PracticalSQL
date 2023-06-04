@@ -253,9 +253,33 @@ CREATE TABLE grades_history (
 	PRIMARY KEY (student_id, course_id, change_time)
 );
 
+-- Listing 17-20: Creating the record_if_grade_changed() function
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 10272). Kindle Edition. 
 
-
+CREATE OR REPLACE FUNCTION record_if_grade_changed()
+RETURNS trigger AS
+$$
+BEGIN 
+	IF NEW.grade <> OLD.grade THEN
+	INSERT INTO grades_history(
+		student_id,
+		course_id,
+		change_time,
+		course,
+		old_grade,
+		new_grade)
+	VALUES
+		(OLD.student_id,
+		OLD.course_id,
+		now(),
+		OLD.course,
+		OLD.grade,
+		NEW.grade);
+	END IF;
+	RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
 
 
 
