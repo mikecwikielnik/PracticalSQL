@@ -202,9 +202,17 @@ CALL update_personal_days();
 
 CREATE EXTENSION plpython3u;
 
+-- Listing 17-17: Using PL/ Python to create the trim_county() function
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 10204-10205). Kindle Edition. 
 
-
+CREATE OR REPLACE FUNCTION trim_county(input_string text)
+RETURNS text AS $$ 
+	import re2
+	cleaned = re.sub(r' County', ', input_string')
+	return cleaned
+	$$
+LANGUAGE plpython3u;	
 
 
 
