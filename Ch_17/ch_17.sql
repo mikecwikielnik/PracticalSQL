@@ -208,15 +208,21 @@ CREATE EXTENSION plpython3u;
 
 CREATE OR REPLACE FUNCTION trim_county(input_string text)
 RETURNS text AS $$ 
-	import re2
-	cleaned = re.sub(r' County', ', input_string')
-	return cleaned
+		import re2
+		cleaned = re.sub(r' County', '', input_string)
+		return cleaned
 	$$
 LANGUAGE plpython3u;	
 
+-- Listing 17-18: Testing the trim_county() function
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 10218). Kindle Edition. 
 
-
+SELECT county_name,
+	trim_county(county_name)
+FROM us_counties_pop_est_2019
+ORDER BY state_fips, county_fips
+LIMIT 5;
 
 
 
