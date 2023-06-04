@@ -224,9 +224,34 @@ FROM us_counties_pop_est_2019
 ORDER BY state_fips, county_fips
 LIMIT 5;
 
+-- Listing 17-19: Creating the grades and grades_history tables
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 10252-10253). Kindle Edition. 
 
+CREATE TABLE grades (
+	student_id bigint,
+	course_id bigint,
+	course text NOT NULL,
+	grade text NOT NULL,
+	PRIMARY KEY (student_id, course_id)
+);
 
+INSERT INTO grades
+VALUES 
+	(1, 1, 'Biology 2', 'F'),
+	(1, 2, 'English 11B', 'D'),
+	(1, 3, 'World History 11B', 'C'),
+	(1, 4, 'Trig 2', 'B');
+	
+CREATE TABLE grades_history (
+	student_id bigint NOT NULL,
+	course_id bigint NOT NULL,
+	change_time timestamp with time zone NOT NULL,
+	course text NOT NULL,
+	old_grade text NOT NULL,
+	new_grade text NOT NULL,
+	PRIMARY KEY (student_id, course_id, change_time)
+);
 
 
 
