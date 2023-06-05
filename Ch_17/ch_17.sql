@@ -291,9 +291,13 @@ CREATE TRIGGER grades_update
 	FOR EACH ROW
 	EXECUTE PROCEDURE record_if_grade_changed();
 
+-- Listing 17-22: Testing the grades_update trigger
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 10326). Kindle Edition. 
 
-
+UPDATE grades
+SET grade = 'C'
+WHERE student_id = 1 AND course_id = 1;
 
 
 
