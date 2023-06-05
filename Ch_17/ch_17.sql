@@ -281,9 +281,15 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- Listing 17-21: Creating the grades_update trigger
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 10298-10299). Kindle Edition. 
 
-
+CREATE TRIGGER grades_update
+	AFTER UPDATE
+	ON grades
+	FOR EACH ROW
+	EXECUTE PROCEDURE record_if_grade_changed();
 
 
 
