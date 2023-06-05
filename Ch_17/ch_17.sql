@@ -299,9 +299,18 @@ UPDATE grades
 SET grade = 'C'
 WHERE student_id = 1 AND course_id = 1;
 
+-- Listing 17-23: Creating a temperature_test table
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 10355). Kindle Edition. 
 
-
+CREATE TABLE temperature_test (
+	station_name text,
+	observation_date date,
+	max_temp integer,
+	min_temp integer,
+	max_temp_group text,
+	PRIMARY KEY (station_name, observation_date)
+);
 
 
 
