@@ -312,10 +312,32 @@ CREATE TABLE temperature_test (
 	PRIMARY KEY (station_name, observation_date)
 );
 
+-- Listing 17-24: Creating the classify_max_temp() function
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 10371-10372). Kindle Edition.  
 
-
-
+CREATE OR REPLACE FUNCTION classify_max_temp()
+	RETURNS trigger as
+$$
+BEGIN
+	CASE
+	WHEN NEW.max_temp >= 90 THEN
+		NEW.max_temp_group := 'Hot';
+	WHEN NEW.max_temp >= 70 AND NEW.max_temp < 90 THEN
+		NEW.max_temp_group := 'Warm';
+	WHEN NEW.max_temp >= 50 AND NEW.max_temp < 70 THEN
+		NEW.max_temp_group := 'Pleasant';
+	WHEN NEW.max_temp >= 33 AND NEW.max_temp < 50 THEN
+		NEW.max_temp_group := 'Cold';
+	WHEN NEW.max_temp >= 20 AND NEW.max_temp < 33 THEN
+		NEW.max_temp_group := 'Frigid';
+	WHEN NEW.max_temp < 20 THEN
+		NEW.max_temp_group := 'Inhumane';
+	ELSE NEW.max_temp_group := 'No reading';
+	END CASE;
+	RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
 
 
 
