@@ -47,9 +47,11 @@ SELECT relname,
 FROM pg_stat_all_tables
 WHERE relname = 'vacuum_test';
 
+-- Listing 19-6: Running VACUUM manually
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 11141). Kindle Edition. 
 
-
+VACUUM vacuum_test;
 
 
 
