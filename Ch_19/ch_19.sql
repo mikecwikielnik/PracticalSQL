@@ -53,12 +53,11 @@ WHERE relname = 'vacuum_test';
 
 VACUUM vacuum_test;
 
+-- Listing 19-7: Using VACUUM FULL to reclaim disk space
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 11154). Kindle Edition. 
 
-
-
-
-
+VACUUM FULL vacuum_test;
 
 
 
