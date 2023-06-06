@@ -21,12 +21,12 @@ SELECT pg_size_pretty(
 	pg_total_relation_size('vacuum_test')
 );
 
+-- Listing 19-3: Inserting 500,000 rows into vacuum_test
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 11077). Kindle Edition. 
 
-
-
-
-
+INSERT INTO vacuum_test
+SELECT * FROM generate_series(1, 500000);
 
 
 
