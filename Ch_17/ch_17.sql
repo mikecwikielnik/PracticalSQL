@@ -339,6 +339,34 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- Listing 17-25: Creating the temperature_insert trigger
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 10385). Kindle Edition. 
+
+CREATE TRIGGER temperature_insert
+	BEFORE INSERT
+	ON temperature_test
+	FOR EACH ROW
+	EXECUTE PROCEDURE classify_max_temp();
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
