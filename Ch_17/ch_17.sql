@@ -349,9 +349,17 @@ CREATE TRIGGER temperature_insert
 	FOR EACH ROW
 	EXECUTE PROCEDURE classify_max_temp();
 	
+-- Listing 17-26: Inserting rows to test the temperature_insert trigger
 
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 10397-10398). Kindle Edition. 
 
-
+INSERT INTO temperature_test
+VALUES
+	('North Station', '1/19/2023', 10, -3),
+	('North Station', '3/20/2023', 28, 19),
+	('North Station', '5/2/2023', 65, 42),
+	('North Station', '8/9/2023', 93, 74),
+	('North Station', '12/14/2023', NULL, NULL);
 
 
 
