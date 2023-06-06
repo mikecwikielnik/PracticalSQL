@@ -35,6 +35,33 @@ SELECT * FROM generate_series(1, 500000);
 UPDATE vacuum_test
 SET integer_column = integer_column + 1;
 
+-- Listing 19-5: Viewing autovacuum statistics for vacuum_test
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 11112-11113). Kindle Edition. 
+
+SELECT relname,
+	last_vacuum,
+	last_autovacuum,
+	vacuum_count,
+	autovacuum_count,
+FROM pg_stat_all_tables
+WHERE relname = 'vacuum_test';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
