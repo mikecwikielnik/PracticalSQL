@@ -28,9 +28,12 @@ SELECT pg_size_pretty(
 INSERT INTO vacuum_test
 SELECT * FROM generate_series(1, 500000);
 
+-- Listing 19-4: Updating all rows in vacuum_test
 
+-- Anthony DeBarros. 9781718501072 (Kindle Location 11089). Kindle Edition. 
 
-
+UPDATE vacuum_test
+SET integer_column = integer_column + 1;
 
 
 
