@@ -59,6 +59,14 @@ VACUUM vacuum_test;
 
 VACUUM FULL vacuum_test;
 
+-- Listing 19-8: Showing the location of postgresql.conf
+
+-- Anthony DeBarros. 9781718501072 (Kindle Location 11170). Kindle Edition. 
+
+SHOW config_file;
+
+
+
 
 
 
