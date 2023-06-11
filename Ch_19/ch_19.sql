@@ -65,10 +65,11 @@ VACUUM FULL vacuum_test;
 
 SHOW config_file;
 
+-- Listing 19-11: Exporting the analysis database with pg_dump
 
+-- pg_dump -d analysis -U user_name -Fc -v -f analysis_backup.dump
 
-
-
+-- Anthony DeBarros. 9781718501072 (Kindle Location 11257). Kindle Edition. 
 
 
 
