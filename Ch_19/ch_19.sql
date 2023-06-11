@@ -71,7 +71,11 @@ SHOW config_file;
 
 -- Anthony DeBarros. 9781718501072 (Kindle Location 11257). Kindle Edition. 
 
+-- Listing 19-12: Restoring the analysis database with pg_restore
 
+-- pg_restore -C -v -d postgres -U user_name analysis_backup.dump 
+
+-- Anthony DeBarros. 9781718501072 (Kindle Locations 11278-11281). Kindle Edition. 
 
 
 
